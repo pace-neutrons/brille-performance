@@ -1,0 +1,26 @@
+conversion_mat,1,0,0,0,1,0,0,0,-1,chunk,0,temperature,5,debye_waller_grid,6,6,6,bose,1,negative_e,1,n_threads,30,useparallel,1,threads,30,brille_npts,10000,5000,20000,dipole_parameters,0.75,1,1
+
+
+Material: Quartz          qpts: 160801     chunk: 0         
+Euphonic (s)
+     8.244     7.891
+Brille Init (s)
+     3.655     3.817
+Brille (s)
+     9.290     9.184
+
+Material: La2Zr2O7        qpts: 160801     chunk: 0         
+Euphonic (s)
+    18.769    18.413
+Brille Init (s)
+     6.469     6.436
+Brille (s)
+    41.426    40.403
+
+Material: Nb              qpts: 160801     chunk: 0         
+Euphonic (s)
+     2.146     2.052
+Brille Init (s)
+     9.243     9.411
+Brille (s)
+     4.076     3.891
