@@ -5,8 +5,8 @@ if do_profile
 end
 
 lattice = [1., 1., 1., 90, 90, 90];
-cut = d2d(lattice, [1 0 0 0], [-5,0.05,5], [0 1 0 0], [-5,0.05,5]);
-n_repeats = 3;
+cut = d2d(lattice, [1 0 0 0], [-5,0.025,5], [0 1 0 0], [-5,0.025,5]);
+n_repeats = 2;
 
 fc_dir = 'force_constants';
 fcs = {euphonic.ForceConstants.from_castep([fc_dir, filesep, 'quartz.castep_bin']), ...
@@ -15,11 +15,12 @@ fcs = {euphonic.ForceConstants.from_castep([fc_dir, filesep, 'quartz.castep_bin'
 brille_npts = {10000, 5000, 20000};
 dipole_params = {0.75, 1.0, 1.0};
 materials = ["Quartz", "La2Zr2O7", "Nb"];
-chunk = 50000;
+chunk = 0;
 filestr = sprintf("_%dqpts_%dchunk_%.0f", numel(cut.s), chunk, posixtime(datetime('now')));
-tictoc_fname = ['out', filesep, char(sprintf("eubr_tictoc%s.txt", filestr))];
-mprof_txt_fname = ['out', filesep, char(sprintf("eubr_mprof%s.txt", filestr))];
-mprof_fname = ['out', filesep, char(sprintf("eubr_mprof%s", filestr))];
+out_dir = ['profile', filesep, 'matlab', filesep, 'idaaas'];
+tictoc_fname = [out_dir, filesep, char(sprintf("eubr_tictoc%s.txt", filestr))];
+mprof_txt_fname = [out_dir, filesep, char(sprintf("eubr_mprof%s.txt", filestr))];
+mprof_fname = [out_dir, filesep, char(sprintf("eubr_mprof%s", filestr))];
 cohcry_args = {'conversion_mat', [1,0,0;0,1,0;0,0,-1], ...
                'chunk', chunk, ...
                'temperature', 5, ...
