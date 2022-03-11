@@ -1,5 +1,5 @@
 function eubr_profile()
-do_profile = true;
+do_profile = false;
 if do_profile
     profile -memory on
 end
@@ -10,10 +10,11 @@ n_repeats = 3;
 
 fc_dir = 'force_constants';
 fcs = {euphonic.ForceConstants.from_castep([fc_dir, filesep, 'quartz.castep_bin']), ...
-       euphonic.ForceConstants.from_castep([fc_dir, filesep, 'La2Zr2O7.castep_bin'])}
-brille_npts = {10000, 5000};
-dipole_params = {0.75, 1.0};
-materials = ["Quartz", "La2Zr2O7"];
+       euphonic.ForceConstants.from_castep([fc_dir, filesep, 'La2Zr2O7.castep_bin']), ...
+       euphonic.ForceConstants.from_castep([fc_dir, filesep, 'Nb-181818-s0.5-NCP19-vib-disp.castep_bin'])};
+brille_npts = {10000, 5000, 20000};
+dipole_params = {0.75, 1.0, 1.0};
+materials = ["Quartz", "La2Zr2O7", "Nb"];
 chunk = 50000;
 filestr = sprintf("_%dqpts_%dchunk_%.0f", numel(cut.s), chunk, posixtime(datetime('now')));
 tictoc_fname = ['out', filesep, char(sprintf("eubr_tictoc%s.txt", filestr))];
