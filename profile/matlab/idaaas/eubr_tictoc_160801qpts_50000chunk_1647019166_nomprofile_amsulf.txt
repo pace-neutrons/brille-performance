@@ -1,0 +1,10 @@
+conversion_mat,1,0,0,0,1,0,0,0,-1,chunk,50000,temperature,5,debye_waller_grid,6,6,6,bose,1,negative_e,1,n_threads,30,useparallel,1,threads,30,brille_npts,5000,dipole_parameters,0.55
+
+
+Material: AmSulf          qpts: 160801     chunk: 50000     
+Euphonic (s)
+   264.473   258.805
+Brille Init (s)
+    34.850    34.949
+Brille (s)
+   263.612   262.598
