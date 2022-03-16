@@ -8,16 +8,15 @@ def main():
     fc_dir = 'force_constants'
     n_repeats = 3
     fcs = ['quartz.castep_bin',
-           'La2Zr2O7.castep_bin',
            'Nb-181818-s0.5-NCP19-vib-disp.castep_bin']
-    materials = ['quartz', 'La2Zr2O7', 'Nb']
+    materials = ['quartz', 'Nb']
 
     args = ['--n-threads', '30', '-s', 'tmp.png', '--npts-density', '10000']
     sf_args = ['-w', 'coherent',
                '--grid', '6', '6', '6',
                '--temperature', '5']
-    brille_npts = ['10000', '5000', '20000']
-    dipole_params = ['0.75', '1.0', '1.0']
+    brille_npts = ['10000', '20000']
+    dipole_params = ['0.75', '1.0']
 
     fobj = open(os.path.join(out_dir, f'powder_map_{int(time.time())}.txt'), 'w')
     fobj.write(f'{sf_args} {args} --brille-npts={brille_npts} --dipole-parameter={dipole_params}')
