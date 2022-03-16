@@ -1,0 +1,21 @@
+['-w', 'coherent', '--grid', '6', '6', '6', '--temperature', '5'] ['--n-threads', '1', '-s', 'tmp.png', '--npts-density', '10000'] --brille-npts=['10000', '20000'] --dipole-parameter=['0.75', '1.0']
+
+Material: quartz    
+Euphonic DOS-weighted
+  1252.812  1250.260  1247.009
+Euphonic SF-weighted
+  1276.984  1268.315  1268.894
+Brille DOS-weighted
+   140.233   142.082   142.505
+Brille SF-weighted
+   185.282   184.516   186.007
+
+Material: Nb        
+Euphonic DOS-weighted
+    99.280    99.429    99.171
+Euphonic SF-weighted
+   107.490   107.404   107.721
+Brille DOS-weighted
+   180.167   191.644   180.713
+Brille SF-weighted
+   191.883   197.789   191.970
