@@ -1,0 +1,1068 @@
+Timer unit: 1e-06 s
+
+Total time: 49.9808 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/brille.py
+Function: calculate_qpoint_phonon_modes at line 52
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    52                                               @profile
+    53                                               def calculate_qpoint_phonon_modes(self, qpts: np.ndarray, **kwargs
+    54                                                                                 ) -> QpointPhononModes:
+    55                                                   """
+    56                                                   Calculate phonon frequencies and eigenvectors at specified
+    57                                                   q-points via linear interpolation
+    58                                           
+    59                                                   Parameters
+    60                                                   ----------
+    61                                                   qpts
+    62                                                       Shape (n_qpts, 3) float ndarray. The q-points to
+    63                                                       interpolate onto in reciprocal cell vector units
+    64                                                   **kwargs
+    65                                                       Will be passed to the
+    66                                                       brille.BZTrellis/Mesh/Nest.ir_interpolate_at
+    67                                                       method. By default useparallel=True and
+    68                                                       threads=multiprocessing.cpu_count() are passed
+    69                                           
+    70                                                   Returns
+    71                                                   -------
+    72                                                   qpoint_phonon_modes
+    73                                                       An object containing frequencies and eigenvectors
+    74                                                       linearly interpolated at each q-point
+    75                                                   """
+    76       121        640.0      5.3      0.0          vals, vecs = self._br_grid_calculate_phonons(
+    77       121   22015404.0 181945.5     44.0              self._grid, qpts, **kwargs)
+    78       121    2845660.0  23517.9      5.7          frequencies = vals.squeeze(axis=-1)*ureg('hartree').to('meV')
+    79                                                   # Eigenvectors in grid are stored in cell vectors basis,
+    80                                                   # convert to Cartesian
+    81       121        589.0      4.9      0.0          vecs_cart = self._br_evec_to_eu(
+    82       121   25009278.0 206688.2     50.0              vecs, cell_vectors=self.crystal._cell_vectors)
+    83       121        468.0      3.9      0.0          return QpointPhononModes(
+    84       121     108804.0    899.2      0.2              self.crystal, qpts, frequencies, vecs_cart)
+
+Total time: 22.0129 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/brille.py
+Function: _br_grid_calculate_phonons at line 114
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   114                                               @profile
+   115                                               def _br_grid_calculate_phonons(self, grid, qpts, **kwargs):
+   116       122      10677.0     87.5      0.0          qpts = np.ascontiguousarray(qpts)
+   117       122        813.0      6.7      0.0          if not kwargs:
+   118                                                       kwargs = {'useparallel': True, 'threads': cpu_count()}
+   119       122   22001451.0 180339.8     99.9          return grid.ir_interpolate_at(qpts, **kwargs)
+
+Total time: 25.004 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/brille.py
+Function: _br_evec_to_eu at line 121
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   121                                               @profile
+   122                                               def _br_evec_to_eu(self, br_evecs, cell_vectors=None):
+   123       121        521.0      4.3      0.0          n_branches = br_evecs.shape[1]
+   124       121        982.0      8.1      0.0          eu_evecs = br_evecs.view().reshape(-1, n_branches, n_branches//3, 3)
+   125       121        395.0      3.3      0.0          if cell_vectors is not None:
+   126                                                       # Convert Brille evecs (stored in basis coordinates) to
+   127                                                       # Cartesian coordinates
+   128       121   25001490.0 206623.9    100.0              eu_evecs = np.einsum('ab,ijka->ijkb', cell_vectors, eu_evecs)
+   129       121        636.0      5.3      0.0          return eu_evecs
+
+Total time: 3.82923 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/brille.py
+Function: from_force_constants at line 131
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   131                                               @classmethod
+   132                                               @profile
+   133                                               def from_force_constants(
+   134                                                       cls: Type[T], force_constants: ForceConstants,
+   135                                                       grid_type: str = 'trellis', n_grid_points: int = 1000,
+   136                                                       grid_density: Optional[int] = None,
+   137                                                       grid_kwargs: Optional[Dict[str, Any]] = None,
+   138                                                       interpolation_kwargs: Optional[Dict[str, Any]] = None) -> T:
+   139                                                   """
+   140                                                   Generates a grid over the irreducible Brillouin Zone to be
+   141                                                   used for linear interpolation with Brille, with properties
+   142                                                   determined by the grid_type, n_grid_points and grid_kwargs
+   143                                                   arguments. Then uses ForceConstants to fill the grid points
+   144                                                   with phonon frequencies and eigenvectors via Fourier
+   145                                                   interpolation. This returns a BrilleInterpolator object that
+   146                                                   can then be used for linear interpolation.
+   147                                           
+   148                                                   Parameters
+   149                                                   ----------
+   150                                                   grid_type
+   151                                                       The Brille grid type to be used, one of {'trellis',
+   152                                                       'mesh', 'nest'}, creating a brille.BZTrellisQdc,
+   153                                                       brille.BZMeshQdc or brille.BZNestQdc grid
+   154                                                       respectively
+   155                                                   n_grid_points
+   156                                                       The approximate number of q-points in the Brille grid.
+   157                                                       This is used to set the kwargs for the grid creation so
+   158                                                       that a grid with approximately the desired number of
+   159                                                       points is created, note this number is approximate
+   160                                                       as the number of grid points generated depends on
+   161                                                       Brille's internal algorithm. If this number is higher,
+   162                                                       the linear interpolation is likely to give values
+   163                                                       closer to the ForceConstants Fourier interpolation,
+   164                                                       but the initialisation and memory costs will be higher.
+   165                                                       This does nothing if grid_kwargs is set
+   166                                                   grid_density
+   167                                                       The approximate density of q-points per 1/angstrom^3
+   168                                                       volume
+   169                                                   grid_kwargs
+   170                                                       Kwargs to be passed to the grid constructor (e.g.
+   171                                                       brille.BZTrellisQdc). If set n_grid_points does
+   172                                                       nothing
+   173                                                   interpolation_kwargs
+   174                                                       Kwargs to be passed to
+   175                                                       ForceConstants.calculate_qpoint_phonon_modes. Note
+   176                                                       that insert_gamma and reduce_qpoints are incompatible
+   177                                                       and will be ignored
+   178                                           
+   179                                                   Returns
+   180                                                   -------
+   181                                                   brille_interpolator
+   182                                                   """
+   183         1          5.0      5.0      0.0          grid_type_opts = ('trellis', 'mesh', 'nest')
+   184         1          4.0      4.0      0.0          if grid_type not in grid_type_opts:
+   185                                                       raise ValueError(f'Grid type "{grid_type}" not recognised')
+   186                                           
+   187         1          5.0      5.0      0.0          crystal = force_constants.crystal
+   188         1          4.0      4.0      0.0          cell_vectors = crystal._cell_vectors
+   189         1        763.0    763.0      0.0          cell = crystal.to_spglib_cell()
+   190                                           
+   191         1       1038.0   1038.0      0.0          dataset = spg.get_symmetry_dataset(cell, symprec=1e-8)
+   192         1          4.0      4.0      0.0          rotations = dataset['rotations']  # in fractional
+   193         1          5.0      5.0      0.0          translations = dataset['translations']  # in fractional
+   194                                           
+   195         1         36.0     36.0      0.0          symmetry = br.Symmetry(rotations, translations)
+   196         1        114.0    114.0      0.0          direct = br.Direct(*cell)
+   197         1         25.0     25.0      0.0          direct.spacegroup = symmetry
+   198         1       7613.0   7613.0      0.2          bz = br.BrillouinZone(direct.star)
+   199                                           
+   200         1         28.0     28.0      0.0          print('Generating grid...')
+   201         1         13.0     13.0      0.0          vol = bz.ir_polyhedron.volume
+   202         1          5.0      5.0      0.0          if grid_type == 'trellis':
+   203         1          4.0      4.0      0.0              if grid_kwargs is None:
+   204         1          4.0      4.0      0.0                  if grid_density is not None:
+   205                                                               grid_kwargs = {
+   206                                                                   'node_volume_fraction': 1/grid_density}
+   207                                                           else:
+   208                                                               # node_volume_fraction actually describes cube
+   209                                                               # volume used to generate tetrahedra
+   210                                                               grid_kwargs = {
+   211         1          5.0      5.0      0.0                          'node_volume_fraction': vol/n_grid_points}
+   212         1    1689287.0 1689287.0     44.1              grid = br.BZTrellisQdc(bz, **grid_kwargs)
+   213                                                   elif grid_type == 'mesh':
+   214                                                       if grid_kwargs is None:
+   215                                                           if grid_density is not None:
+   216                                                               grid_kwargs = {
+   217                                                                   'max_size': 1/grid_density,
+   218                                                                   'max_points': int(grid_density*vol)}
+   219                                                           else:
+   220                                                               grid_kwargs = {
+   221                                                                   'max_size': vol/n_grid_points,
+   222                                                                   'max_points': n_grid_points}
+   223                                                       grid = br.BZMeshQdc(bz, **grid_kwargs)
+   224                                                   elif grid_type == 'nest':
+   225                                                       if grid_kwargs is None:
+   226                                                           if grid_density is not None:
+   227                                                               grid_kwargs = {'number_density': int(grid_density*vol)}
+   228                                                           else:
+   229                                                               grid_kwargs = {'number_density': n_grid_points}
+   230                                                       grid = br.BZNestQdc(bz, **grid_kwargs)
+   231                                           
+   232         1        269.0    269.0      0.0          print(f'Grid generated with {len(grid.rlu)} q-points. '
+   233                                                          'Calculating frequencies/eigenvectors...')
+   234         1          5.0      5.0      0.0          if interpolation_kwargs is None:
+   235                                                       interpolation_kwargs = {}
+   236         1          6.0      6.0      0.0          interpolation_kwargs['insert_gamma'] = False
+   237         1          6.0      6.0      0.0          interpolation_kwargs['reduce_qpts'] = False
+   238         1          6.0      6.0      0.0          phonons = force_constants.calculate_qpoint_phonon_modes(
+   239         1    1666971.0 1666971.0     43.5              grid.rlu, **interpolation_kwargs)
+   240                                                   # Convert eigenvectors from Cartesian to cell vectors basis
+   241                                                   # for storage in grid
+   242         1        173.0    173.0      0.0          evecs_basis = np.einsum('ba,ijkb->ijka', np.linalg.inv(cell_vectors),
+   243         1     455778.0 455778.0     11.9                                  phonons.eigenvectors)
+   244         1          7.0      7.0      0.0          n_atoms = crystal.n_atoms
+   245         1          9.0      9.0      0.0          frequencies = np.reshape(phonons._frequencies,
+   246         1         41.0     41.0      0.0                                   phonons._frequencies.shape + (1,))
+   247         1          4.0      4.0      0.0          freq_el = (1,)
+   248         1          4.0      4.0      0.0          freq_weight = (1., 0., 0.)
+   249         1          4.0      4.0      0.0          evecs = np.reshape(evecs_basis,
+   250         1         11.0     11.0      0.0                             (evecs_basis.shape[0], 3*n_atoms, 3*n_atoms))
+   251         1          4.0      4.0      0.0          cost_function = 0
+   252         1          5.0      5.0      0.0          evecs_el = (0, 3*n_atoms, 0, 3, 0, cost_function)
+   253         1          4.0      4.0      0.0          evecs_weight = (0., 1., 0.)
+   254         1         53.0     53.0      0.0          print('Filling grid...')
+   255         1          6.0      6.0      0.0          grid.fill(frequencies, freq_el, freq_weight, evecs, evecs_el,
+   256         1       6582.0   6582.0      0.2                    evecs_weight)
+   257         1        323.0    323.0      0.0          return cls(force_constants.crystal, grid)
+
+Total time: 383.81 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/cli/powder_map.py
+Function: main at line 58
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    58                                           @profile
+    59                                           def main(params: Optional[List[str]] = None) -> None:
+    60         2      10856.0   5428.0      0.0      args = get_args(get_parser(), params)
+    61         2         20.0     10.0      0.0      calc_modes_kwargs = _calc_modes_kwargs(args)
+    62                                           
+    63                                               # Make sure we get an error if accessing NPTS inappropriately
+    64         2         13.0      6.5      0.0      if args.npts_density is not None:
+    65         2         13.0      6.5      0.0          args.npts = None
+    66                                           
+    67         2      92559.0  46279.5      0.0      fc = load_data_from_file(args.filename, verbose=True)
+    68         2         15.0      7.5      0.0      if not isinstance(fc, ForceConstants):
+    69                                                   raise TypeError('Force constants are required to use the '
+    70                                                                   'euphonic-powder-map tool')
+    71         2         13.0      6.5      0.0      if args.pdos is not None and args.weighting == 'coherent':
+    72                                                   raise ValueError('"--pdos" is only compatible with '
+    73                                                                    '"--weighting" options that include dos')
+    74                                           
+    75         2         12.0      6.0      0.0      if args.use_brille:
+    76         1       7630.0   7630.0      0.0          from euphonic.brille import BrilleInterpolator
+    77         1          7.0      7.0      0.0          fc = BrilleInterpolator.from_force_constants(
+    78         1          7.0      7.0      0.0              fc, grid_type=args.brille_grid_type,
+    79         1          6.0      6.0      0.0              n_grid_points=args.brille_npts,
+    80         1          8.0      8.0      0.0              grid_density=args.brille_npts_density,
+    81         1    3830470.0 3830470.0      1.0              interpolation_kwargs=calc_modes_kwargs)
+    82         1         16.0     16.0      0.0          calc_modes_kwargs = _brille_calc_modes_kwargs(args)
+    83                                           
+    84         2         55.0     27.5      0.0      print("Setting up dimensions...")
+    85         2        934.0    467.0      0.0      q_min = _get_q_distance(args.length_unit, args.q_min)
+    86         2        726.0    363.0      0.0      q_max = _get_q_distance(args.length_unit, args.q_max)
+    87         2         31.0     15.5      0.0      recip_length_unit = q_min.units
+    88                                           
+    89         2         26.0     13.0      0.0      n_q_bins = ceil((args.q_max - args.q_min) / args.q_spacing)
+    90         2         18.0      9.0      0.0      q_bin_edges = np.linspace(q_min.magnitude, q_max.magnitude, n_q_bins + 1,
+    91         2       1293.0    646.5      0.0                                endpoint=True) * recip_length_unit
+    92         2        418.0    209.0      0.0      q_bin_centers = (q_bin_edges[:-1] + q_bin_edges[1:]) / 2
+    93                                           
+    94                                               # Use X-point modes to estimate frequency range, set up energy bins
+    95                                               # (Not Gamma in case there are only 3 branches; value would be zero!)
+    96         2         14.0      7.0      0.0      modes = fc.calculate_qpoint_frequencies(
+    97         2     364459.0 182229.5      0.1          np.array([[0., 0., 0.5]]), **calc_modes_kwargs)
+    98         2       1592.0    796.0      0.0      modes.frequencies_unit = args.energy_unit
+    99         2         20.0     10.0      0.0      energy_bins = _get_energy_bins(
+   100         2         21.0     10.5      0.0          modes, args.ebins + 1, emin=args.e_min, emax=args.e_max,
+   101         2      23354.0  11677.0      0.0          headroom=1.2)  # Generous headroom as we only checked one q-point
+   102                                           
+   103         2         20.0     10.0      0.0      if args.weighting in ('coherent',):
+   104                                                   # Compute Debye-Waller factor once for re-use at each mod(q)
+   105                                                   # (If temperature is not set, this will be None.)
+   106         2         17.0      8.5      0.0          if args.temperature is not None:
+   107         2        799.0    399.5      0.0              temperature = args.temperature * ureg('K')
+   108         2         19.0      9.5      0.0              dw = _get_debye_waller(temperature, fc, grid=args.grid,
+   109         2         16.0      8.0      0.0                                     grid_spacing=(args.grid_spacing
+   110         2        201.0    100.5      0.0                                                   * recip_length_unit),
+   111         2     165398.0  82699.0      0.0                                     **calc_modes_kwargs)
+   112                                                   else:
+   113                                                       temperature = None
+   114                                                       dw = None
+   115                                           
+   116         2        530.0    265.0      0.0      print(f"Sampling {n_q_bins} |q| shells between {q_min:~P} and {q_max:~P}")
+   117                                           
+   118         2         25.0     12.5      0.0      z_data = np.empty((n_q_bins, len(energy_bins) - 1))
+   119                                           
+   120       242     140029.0    578.6      0.0      for q_index in tqdm(range(n_q_bins)):
+   121       240       6350.0     26.5      0.0          q = q_bin_centers[q_index]
+   122                                           
+   123       240       2164.0      9.0      0.0          if args.npts_density is not None:
+   124       240      66225.0    275.9      0.0              npts = ceil(args.npts_density * (q / recip_length_unit)**2)
+   125       240       1737.0      7.2      0.0              npts = max(args.npts_min,
+   126       240       1917.0      8.0      0.0                         min(args.npts_max, npts))
+   127                                                   else:
+   128                                                       npts = args.npts
+   129                                           
+   130       240       1672.0      7.0      0.0          if args.weighting == 'dos' and args.pdos is None:
+   131                                                       spectrum_1d = sample_sphere_dos(
+   132                                                           fc, q,
+   133                                                           npts=npts, sampling=args.sampling, jitter=args.jitter,
+   134                                                           energy_bins=energy_bins,
+   135                                                           **calc_modes_kwargs)
+   136       240       1700.0      7.1      0.0          elif 'dos' in args.weighting:
+   137                                                       spectrum_1d_col = sample_sphere_pdos(
+   138                                                               fc, q,
+   139                                                               npts=npts, sampling=args.sampling, jitter=args.jitter,
+   140                                                               energy_bins=energy_bins,
+   141                                                               weighting=_get_pdos_weighting(args.weighting),
+   142                                                               **calc_modes_kwargs)
+   143                                                       spectrum_1d = _arrange_pdos_groups(spectrum_1d_col, args.pdos)
+   144       240       1637.0      6.8      0.0          elif args.weighting == 'coherent':
+   145       240       1572.0      6.5      0.0              spectrum_1d = sample_sphere_structure_factor(
+   146       240       1577.0      6.6      0.0                  fc, q,
+   147       240       1526.0      6.4      0.0                  dw=dw,
+   148       240       1562.0      6.5      0.0                  temperature=temperature,
+   149       240       1583.0      6.6      0.0                  sampling=args.sampling, jitter=args.jitter,
+   150       240       1551.0      6.5      0.0                  npts=npts,
+   151       240       1752.0      7.3      0.0                  energy_bins=energy_bins,
+   152       240  376752468.0 1569801.9     98.2                  **calc_modes_kwargs)
+   153                                           
+   154       240     316969.0   1320.7      0.1          z_data[q_index, :] = spectrum_1d.y_data.magnitude
+   155                                           
+   156         2         42.0     21.0      0.0      print(f"Final npts: {npts}")
+   157                                           
+   158         2         18.0      9.0      0.0      spectrum = euphonic.Spectrum2D(q_bin_edges, energy_bins,
+   159         2       4351.0   2175.5      0.0                                     z_data * spectrum_1d.y_data.units)
+   160                                           
+   161         2         18.0      9.0      0.0      if args.q_broadening or args.energy_broadening:
+   162                                                   spectrum = spectrum.broaden(
+   163                                                       x_width=(args.q_broadening * recip_length_unit
+   164                                                                if args.q_broadening else None),
+   165                                                       y_width=(args.energy_broadening * energy_bins.units
+   166                                                                if args.energy_broadening else None),
+   167                                                       shape=args.shape)
+   168                                           
+   169         2       3165.0   1582.5      0.0      print(f"Plotting figure: max intensity {np.max(spectrum.z_data):~P}")
+   170         2         15.0      7.5      0.0      plot_label_kwargs = _plot_label_kwargs(
+   171         2        168.0     84.0      0.0          args, default_xlabel=f"|q| / {q_min.units:~P}",
+   172         2       2051.0   1025.5      0.0          default_ylabel=f"Energy / {spectrum.y_data.units:~P}")
+   173                                           
+   174         2         22.0     11.0      0.0      if args.save_json:
+   175                                                   spectrum.to_json_file(args.save_json)
+   176         2         13.0      6.5      0.0      if args.disable_widgets:
+   177                                                   base = [base_style]
+   178                                               else:
+   179         2         18.0      9.0      0.0          base = [base_style, intensity_widget_style]
+   180         2         57.0     28.5      0.0      style = _compose_style(user_args=args, base=base)
+   181         2       2243.0   1121.5      0.0      with matplotlib.style.context(style):
+   182         2         17.0      8.5      0.0          fig = euphonic.plot.plot_2d(spectrum,
+   183         2         12.0      6.0      0.0                                      vmin=args.vmin,
+   184         2         13.0      6.5      0.0                                      vmax=args.vmax,
+   185         2     397202.0 198601.0      0.1                                      **plot_label_kwargs)
+   186                                           
+   187         2         16.0      8.0      0.0          if args.disable_widgets is False:
+   188                                                       # TextBox only available from mpl 2.1.0
+   189         2         12.0      6.0      0.0              try:
+   190         2         25.0     12.5      0.0                  from matplotlib.widgets import TextBox
+   191                                                       except ImportError:
+   192                                                           args.disable_widgets = True
+   193                                           
+   194         2         13.0      6.5      0.0          if args.disable_widgets is False:
+   195         2       2316.0   1158.0      0.0              min_label = f'Min Intensity ({spectrum.z_data.units:~P})'
+   196         2       2174.0   1087.0      0.0              max_label = f'Max Intensity ({spectrum.z_data.units:~P})'
+   197         2         13.0      6.5      0.0              boxw = 0.15
+   198         2         13.0      6.5      0.0              boxh = 0.05
+   199         2         16.0      8.0      0.0              x0 = 0.1 + len(min_label)*0.01
+   200         2         12.0      6.0      0.0              y0 = 0.025
+   201         2      88783.0  44391.5      0.0              axmin = fig.add_axes([x0, y0, boxw, boxh])
+   202         2      88228.0  44114.0      0.0              axmax = fig.add_axes([x0, y0 + 0.075, boxw, boxh])
+   203         2         30.0     15.0      0.0              image = fig.get_axes()[0].images[0]
+   204         2         19.0      9.5      0.0              cmin, cmax = image.get_clim()
+   205         2         13.0      6.5      0.0              pad = 0.05
+   206         2         14.0      7.0      0.0              fmt_str = '.2e' if cmax < 0.1 else '.2f'
+   207         2         13.0      6.5      0.0              minbox = TextBox(axmin, min_label,
+   208         2       7743.0   3871.5      0.0                               initial=f'{cmin:{fmt_str}}', label_pad=pad)
+   209         2         14.0      7.0      0.0              maxbox = TextBox(axmax, max_label,
+   210         2       6850.0   3425.0      0.0                               initial=f'{cmax:{fmt_str}}', label_pad=pad)
+   211         2         15.0      7.5      0.0              def update_min(min_val):
+   212                                                           image.set_clim(vmin=float(min_val))
+   213                                                           fig.canvas.draw()
+   214                                           
+   215         2         13.0      6.5      0.0              def update_max(max_val):
+   216                                                           image.set_clim(vmax=float(max_val))
+   217                                                           fig.canvas.draw()
+   218         2         24.0     12.0      0.0              minbox.on_submit(update_min)
+   219         2         15.0      7.5      0.0              maxbox.on_submit(update_max)
+   220                                           
+   221         2    1399029.0 699514.5      0.4          matplotlib_save_or_show(save_filename=args.save_to)
+
+Total time: 105.458 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/force_constants.py
+Function: _calculate_phonons_at_qpts at line 429
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   429                                               @profile
+   430                                               def _calculate_phonons_at_qpts(
+   431                                                       self,
+   432                                                       qpts: np.ndarray,
+   433                                                       weights: Optional[np.ndarray],
+   434                                                       asr: Optional[str],
+   435                                                       dipole: bool,
+   436                                                       dipole_parameter: float,
+   437                                                       eta_scale: float,
+   438                                                       splitting: bool,
+   439                                                       insert_gamma: bool,
+   440                                                       reduce_qpts: bool,
+   441                                                       use_c: Optional[bool],
+   442                                                       n_threads: Optional[int],
+   443                                                       return_mode_gradients: bool,
+   444                                                       return_mode_widths: bool,
+   445                                                       return_eigenvectors: bool) -> Tuple[
+   446                                                           np.ndarray, Quantity, Optional[np.ndarray],
+   447                                                           Optional[np.ndarray], Optional[Quantity]]:
+   448                                                   """
+   449                                                   Calculates phonon frequencies, and optionally eigenvectors and
+   450                                                   phonon frequency gradients. See calculate_qpoint_phonon_modes
+   451                                                   for argument details
+   452                                           
+   453                                                   Returns
+   454                                                   -------
+   455                                                   qpts
+   456                                                       Shape (n_qpts, 3) float ndarray. The calculated q-points,
+   457                                                       note that this may not be the same as the input q-points
+   458                                                       if splitting and insert_gamma=True and there are gamma
+   459                                                       points
+   460                                                   frequencies
+   461                                                       Shape (n_qpts, 3*n_atoms) float Quantity in energy units,
+   462                                                       the phonon frequencies. n_qpts may not be the same as the
+   463                                                       number of input q-points, if splitting and
+   464                                                       insert_gamma=True and there are gamma points
+   465                                                   weights
+   466                                                       Shape (n_qpts,) float ndarray. The weight of each q-point
+   467                                                   eigenvectors
+   468                                                       Shape (n_qpts, 3*n_atoms, n_atoms, 3) complex ndarray
+   469                                                   gradients
+   470                                                       Shape (n_qpts, 3*n_atoms, 3) float Quantity in
+   471                                                       energy*length units. The phonon mode gradients
+   472                                                   """
+   473       123       1446.0     11.8      0.0          if return_mode_widths:
+   474                                                       warnings.warn(
+   475                                                           'return_mode_widths has been deprecated and will be removed '
+   476                                                           'in a future release. Please instead use a combination of '
+   477                                                           'return_mode_gradients and euphonic.util.'
+   478                                                           'mode_gradients_to_widths, e.g.:\n'
+   479                                                           'phon, mode_gradients = force_constants.calculate_qpoint_phonon_modes('
+   480                                                           '*args, **kwargs, return_mode_gradients=True)\n'
+   481                                                           'mode_widths = euphonic.util.mode_gradients_to_widths(mode_gradients, '
+   482                                                           'phon.crystal.cell_vectors)',
+   483                                                           category=DeprecationWarning, stacklevel=3)
+   484                                                       return_mode_gradients = True
+   485       123       1723.0     14.0      0.0          if eta_scale != 1.0:
+   486                                                       _deprecation_warn('eta_scale', 'dipole_parameter', stacklevel=4)
+   487                                                       dipole_parameter = eta_scale
+   488                                                   # Check weights is of appropriate type and shape, to avoid doing all
+   489                                                   # the interpolation only for it to fail creating QpointPhononModes
+   490       123       1216.0      9.9      0.0          _check_constructor_inputs(
+   491       123       5037.0     41.0      0.0              [weights], [[np.ndarray, type(None)]], [(len(qpts),)], ['weights'])
+   492                                           
+   493                                                   # Set default splitting params
+   494       123     113429.0    922.2      0.1          if self.born is None:
+   495                                                       dipole = False
+   496       123       1306.0     10.6      0.0          if not dipole:
+   497                                                       splitting = False
+   498                                           
+   499       123       1310.0     10.7      0.0          if splitting and insert_gamma:
+   500                                                       # Duplicate gamma points where there is splitting
+   501                                                       gamma_i = np.where(is_gamma(qpts))[0]
+   502                                                       split_gamma = gamma_i[np.where(
+   503                                                           np.logical_and(gamma_i > 0, gamma_i < len(qpts) - 1))]
+   504                                                       qpts = np.insert(qpts, split_gamma, qpts[split_gamma], axis=0)
+   505                                                       # It doesn't necessarily make sense to use both weights
+   506                                                       # (usually used for DOS) and splitting (usually used for
+   507                                                       # bandstructures) but we need to handle this case anyway
+   508                                                       # Where 1 q-point splits into 2, half the weight for each
+   509                                                       if weights is not None:
+   510                                                           # Don't change original array
+   511                                                           weights = np.copy(weights)
+   512                                                           weights[split_gamma] = weights[split_gamma]/2
+   513                                                           weights = np.insert(weights, split_gamma,
+   514                                                                               weights[split_gamma])
+   515                                           
+   516       123       1122.0      9.1      0.0          if reduce_qpts:
+   517       122      12122.0     99.4      0.0              norm_qpts = qpts - np.rint(qpts)
+   518                                                       # Ensure gamma points are exactly zero, otherwise you may
+   519                                                       # have a case where small fp differences mean np.unique
+   520                                                       # doesn't reduce them, yet they're all classified as gamma
+   521                                                       # points. This causes indexing errors later when calculating
+   522                                                       # q-directions as there are then points in reduced_qpts
+   523                                                       # whose index isn't in qpts_i
+   524       122      23817.0    195.2      0.0              gamma_i = np.where(is_gamma(qpts))[0]
+   525       122       1382.0     11.3      0.0              n_gamma = len(gamma_i)
+   526       122       2502.0     20.5      0.0              norm_qpts[gamma_i] = 0.
+   527       122       1184.0      9.7      0.0              try:
+   528       122       1480.0     12.1      0.0                  reduced_qpts, qpts_i = np.unique(norm_qpts, return_inverse=True,
+   529       122    1111589.0   9111.4      1.1                                                   axis=0)
+   530                                                       except TypeError:  # Workaround for np 1.12 before axis kwarg
+   531                                                           norm_qpts = np.ascontiguousarray(norm_qpts)
+   532                                                           reduced_qpts, qpts_i = np.unique(
+   533                                                               norm_qpts.view(norm_qpts.dtype.descr*3),
+   534                                                               return_inverse=True)
+   535                                                           reduced_qpts = reduced_qpts.view(
+   536                                                               norm_qpts.dtype).reshape(-1, 3)
+   537       122       1281.0     10.5      0.0              n_rqpts = len(reduced_qpts)
+   538                                                       # Special handling of gamma points - don't reduce gamma
+   539                                                       # points if LO-TO splitting
+   540       122       1124.0      9.2      0.0              if splitting and n_gamma > 1:
+   541                                                           # Replace any gamma points and their indices with new
+   542                                                           # gamma points appended onto the reduced q-point array,
+   543                                                           # so each gamma can have its own splitting
+   544                                                           qpts_i[gamma_i[1:]] = range(n_rqpts, n_rqpts + n_gamma - 1)
+   545                                                           reduced_qpts = np.append(reduced_qpts,
+   546                                                                                    np.tile(np.array([0., 0., 0., ]),
+   547                                                                                            (n_gamma - 1, 1)),
+   548                                                                                    axis=0)
+   549                                                           n_rqpts = len(reduced_qpts)
+   550                                                   else:
+   551         1          6.0      6.0      0.0              reduced_qpts = qpts
+   552         1         23.0     23.0      0.0              qpts_i = np.arange(0, len(qpts), dtype=np.int32)
+   553         1          6.0      6.0      0.0              n_rqpts = len(qpts)
+   554                                           
+   555                                                   # Get q-directions for non-analytical corrections
+   556       123       1170.0      9.5      0.0          if splitting:
+   557       123      57020.0    463.6      0.1              split_idx = np.where(is_gamma(reduced_qpts))[0]
+   558       123       3625.0     29.5      0.0              q_dirs = self._get_q_dirs(qpts, qpts_i, split_idx)
+   559                                                   else:
+   560                                                       split_idx = np.array([])
+   561                                                       q_dirs = np.array([])
+   562                                           
+   563       123       1188.0      9.7      0.0          n_sc_shells = 2  # How many supercells out to search for atom images
+   564                                                   # Construct list of supercell atom images
+   565       123       1386.0     11.3      0.0          if not hasattr(self, '_sc_image_i'):
+   566         2     275766.0 137883.0      0.3              self._calculate_supercell_images(n_sc_shells)
+   567                                           
+   568                                                   # Get a list of all the unique supercell image origins and cell
+   569                                                   # origins in x, y, z and how to rebuild them to minimise
+   570                                                   # expensive phase calculations later
+   571       123       1332.0     10.8      0.0          sc_image_r = get_all_origins(
+   572       123      41265.0    335.5      0.0              np.repeat(n_sc_shells, 3) + 1, min_xyz=-np.repeat(n_sc_shells, 3))
+   573       123       1247.0     10.1      0.0          sc_origins = np.einsum('ij,jk->ik', sc_image_r,
+   574       123       9727.0     79.1      0.0                                 self.sc_matrix).astype(np.int32)
+   575       123       1686.0     13.7      0.0          unique_sc_origins = [[] for i in range(3)]
+   576       123       1971.0     16.0      0.0          unique_sc_i = np.zeros((len(sc_origins), 3), dtype=np.int32)
+   577       123       1729.0     14.1      0.0          unique_cell_origins = [[] for i in range(3)]
+   578       123       1853.0     15.1      0.0          unique_cell_i = np.zeros((len(self.cell_origins), 3), dtype=np.int32)
+   579       492       5155.0     10.5      0.0          for i in range(3):
+   580       369       4246.0     11.5      0.0              unique_sc_origins[i], unique_sc_i[:, i] = np.unique(
+   581       369      32178.0     87.2      0.0                  sc_origins[:, i], return_inverse=True)
+   582       369       3782.0     10.2      0.0              unique_cell_origins[i], unique_cell_i[:, i] = np.unique(
+   583       369      30384.0     82.3      0.0                  self.cell_origins[:, i], return_inverse=True)
+   584       123       1403.0     11.4      0.0          if return_mode_gradients:
+   585                                                       cell_origins_cart = np.einsum('ij,jk->ik', self.cell_origins,
+   586                                                                                     self.crystal._cell_vectors)
+   587                                                       # Append 0. to sc_origins_cart, so that when being indexed by
+   588                                                       # sc_image_i to get the origins for each image, an index of -1
+   589                                                       # and a value of 0. can be used
+   590                                                       sc_origins_cart = np.zeros((len(sc_origins) + 1, 3))
+   591                                                       sc_origins_cart[:len(sc_origins)] = np.einsum(
+   592                                                           'ij,jk->ik', sc_origins, self.crystal._cell_vectors)
+   593                                                       ax = np.newaxis
+   594                                                       all_origins_cart = (sc_origins_cart[self._sc_image_i]
+   595                                                                           + cell_origins_cart[:, ax, ax, ax, :])
+   596                                                   else:
+   597       123       1800.0     14.6      0.0              all_origins_cart = np.zeros((0, 3), dtype=np.float64)
+   598                                           
+   599                                                   # Precompute dynamical matrix mass weighting
+   600       123       1635.0     13.3      0.0          atom_mass = self.crystal._atom_mass
+   601       123       1366.0     11.1      0.0          n_atoms = self.crystal.n_atoms
+   602       123       8887.0     72.3      0.0          masses = np.tile(np.repeat(atom_mass, 3), (3*n_atoms, 1))
+   603       123       5926.0     48.2      0.0          dyn_mat_weighting = 1/np.sqrt(masses*np.transpose(masses))
+   604                                           
+   605                                                   # Initialise dipole correction calc to FC matrix if required
+   606       123       1446.0     11.8      0.0          if dipole and (not hasattr(self, '_dipole_parameter') or
+   607       121       1222.0     10.1      0.0                         dipole_parameter != self._dipole_parameter):
+   608         2     231957.0 115978.5      0.2              self._dipole_correction_init(dipole_parameter)
+   609                                           
+   610       123       1251.0     10.2      0.0          force_constants = self._force_constants
+   611       123       1253.0     10.2      0.0          if asr == 'realspace':
+   612                                                       if not hasattr(self, '_force_constants_asr'):
+   613                                                           self._force_constants_asr = self._enforce_realspace_asr()
+   614                                                       force_constants = self._force_constants_asr
+   615                                                   # Precompute fc matrix weighted by number of supercell atom
+   616                                                   # images (for cumulant method)
+   617                                                   n_sc_images_repeat = (
+   618       123      36064.0    293.2      0.0              self._n_sc_images.repeat(3, axis=2).repeat(3, axis=1))
+   619       123       1186.0      9.6      0.0          fc_img_weighted = np.divide(
+   620       123      36523.0    296.9      0.0              force_constants, n_sc_images_repeat, where=n_sc_images_repeat != 0)
+   621                                           
+   622       123       2422.0     19.7      0.0          recip_asr_correction = np.array([], dtype=np.complex128)
+   623       123       1455.0     11.8      0.0          if asr == 'reciprocal':
+   624                                                       # Calculate dyn mat at gamma for reciprocal ASR
+   625                                                       q_gamma = np.array([0., 0., 0.])
+   626                                                       dyn_mat_gamma, _ = self._calculate_dyn_mat(
+   627                                                           q_gamma, fc_img_weighted, unique_sc_origins,
+   628                                                           unique_sc_i, unique_cell_origins, unique_cell_i,
+   629                                                           all_origins_cart)
+   630                                                       if dipole:
+   631                                                           dyn_mat_gamma += self._calculate_dipole_correction(q_gamma)
+   632                                                       recip_asr_correction = self._enforce_reciprocal_asr(dyn_mat_gamma)
+   633                                           
+   634                                           
+   635       123      21804.0    177.3      0.0          rfreqs = np.zeros((n_rqpts, 3*n_atoms))
+   636       123       1575.0     12.8      0.0          if return_eigenvectors:
+   637       122       1396.0     11.4      0.0              reigenvecs = np.zeros(
+   638       122      59341.0    486.4      0.1                  (n_rqpts, 3*n_atoms, n_atoms, 3), dtype=np.complex128)
+   639                                                   else:
+   640                                                       # Create dummy zero-length eigenvectors so this can be
+   641                                                       # detected in C and eigenvectors won't be saved
+   642         1          7.0      7.0      0.0              reigenvecs = np.zeros(
+   643         1         11.0     11.0      0.0                  (0, 3*n_atoms, n_atoms, 3), dtype=np.complex128)
+   644                                           
+   645       123       1485.0     12.1      0.0          if return_mode_gradients:
+   646                                                       rmode_gradients = np.zeros((n_rqpts, 3*n_atoms, 3),
+   647                                                                                  dtype=np.complex128)
+   648                                                   else:
+   649       123       1951.0     15.9      0.0              rmode_gradients = np.zeros((0, 3*n_atoms, 3), dtype=np.complex128)
+   650                                           
+   651       123      13098.0    106.5      0.0          euphonic_path = os.path.dirname(euphonic.__file__)
+   652       123       1343.0     10.9      0.0          cext_err_msg = (f'Euphonic\'s C extension couldn\'t be imported '
+   653                                                                   f'from {euphonic_path}, it may not have been '
+   654                                                                   f'installed.')
+   655                                           
+   656                                                   # Check if C extension can be used and handle appropriately
+   657       123       1305.0     10.6      0.0          use_c_status = False
+   658       123       1381.0     11.2      0.0          if use_c is not False:
+   659       123       1380.0     11.2      0.0              try:
+   660       123       3043.0     24.7      0.0                  import euphonic._euphonic as euphonic_c
+   661       123       1380.0     11.2      0.0                  use_c_status = True
+   662                                                       except ImportError:
+   663                                                           if use_c is None:
+   664                                                               warnings.warn((
+   665                                                                   cext_err_msg
+   666                                                                   + ' Falling back to pure Python calculation.'),
+   667                                                                   stacklevel=3)
+   668                                                           else:
+   669                                                               raise ImportCError(cext_err_msg)
+   670                                           
+   671       123       1287.0     10.5      0.0          if use_c_status is True:
+   672       123       1535.0     12.5      0.0              if n_threads is None:
+   673                                                           n_threads_env = os.environ.get(
+   674                                                               'EUPHONIC_NUM_THREADS', '')  # type: str
+   675                                                           if n_threads_env:
+   676                                                               n_threads = int(n_threads_env)
+   677                                                           else:
+   678                                                               n_threads = cpu_count()
+   679                                                       # Make sure all arrays are contiguous before calling C
+   680       123       1321.0     10.7      0.0              cell_vectors = self.crystal._cell_vectors
+   681       123     315990.0   2569.0      0.3              recip_vectors = self.crystal.reciprocal_cell().to(
+   682       123      43318.0    352.2      0.0                  '1/bohr').magnitude
+   683                                                       # Get conj transpose - the dynamical matrix calculated in C
+   684                                                       # is passed to Fortran libs so uses Fortran ordering, make
+   685                                                       # sure reciprocal correction matches this. This only makes
+   686                                                       # a very small difference and can only be seen in near-flat
+   687                                                       # mode gradients, but should be corrected anyway
+   688       123       2537.0     20.6      0.0              recip_asr_correction =  recip_asr_correction.conj().T
+   689                                                       (cell_vectors, recip_vectors, reduced_qpts, split_idx, q_dirs,
+   690                                                        fc_img_weighted, sc_origins, recip_asr_correction,
+   691                                                        dyn_mat_weighting, rfreqs, reigenvecs, rmode_gradients,
+   692       123       1512.0     12.3      0.0               all_origins_cart) = _ensure_contiguous_args(
+   693       123       1125.0      9.1      0.0                   cell_vectors, recip_vectors, reduced_qpts, split_idx,
+   694       123       1461.0     11.9      0.0                   q_dirs, fc_img_weighted, sc_origins, recip_asr_correction,
+   695       123       1581.0     12.9      0.0                   dyn_mat_weighting, rfreqs, reigenvecs, rmode_gradients,
+   696       123      37678.0    306.3      0.0                   all_origins_cart)
+   697       123       1324.0     10.8      0.0              attrs = ['_n_sc_images', '_sc_image_i', 'cell_origins']
+   698       123       1206.0      9.8      0.0              dipole_attrs = ['atom_r', '_born', '_dielectric', '_H_ab',
+   699       123       1357.0     11.0      0.0                              '_cells', '_gvec_phases', '_gvecs_cart',
+   700       123       1407.0     11.4      0.0                              '_dipole_q0']
+   701       123      35687.0    290.1      0.0              _ensure_contiguous_attrs(self, attrs, opt_attrs=dipole_attrs)
+   702       123    1110930.0   9032.0      1.1              with threadpool_limits(limits=1):
+   703       123       1675.0     13.6      0.0                  euphonic_c.calculate_phonons(
+   704       123       1452.0     11.8      0.0                      self, cell_vectors, recip_vectors, reduced_qpts,
+   705       123       1131.0      9.2      0.0                      split_idx, q_dirs, fc_img_weighted, sc_origins,
+   706       123      10193.0     82.9      0.0                      recip_asr_correction, dyn_mat_weighting, dipole,
+   707       123       1158.0      9.4      0.0                      splitting, rfreqs, reigenvecs, rmode_gradients,
+   708       123   96296776.0 782900.6     91.3                      all_origins_cart, n_threads)
+   709                                                   else:
+   710                                                       for qi, qpt in enumerate(reduced_qpts):
+   711                                                           q_dir = None
+   712                                                           if splitting and is_gamma(qpt):
+   713                                                               q_dir_idx = np.where(split_idx == qi)[0][0]
+   714                                                               q_dir = q_dirs[q_dir_idx]
+   715                                                           rfreqs[qi], evecs, grads = self._calculate_phonons_at_q(
+   716                                                               qpt, fc_img_weighted, unique_sc_origins, unique_sc_i,
+   717                                                               unique_cell_origins, unique_cell_i, all_origins_cart,
+   718                                                               dyn_mat_weighting, recip_asr_correction, dipole, q_dir)
+   719                                                           if return_eigenvectors:
+   720                                                               reigenvecs[qi] = evecs
+   721                                                           if return_mode_gradients:
+   722                                                               rmode_gradients[qi] = grads
+   723                                           
+   724       123    3384309.0  27514.7      3.2          freqs = rfreqs[qpts_i]*ureg('hartree').to('meV')
+   725       123       1022.0      8.3      0.0          if return_eigenvectors:
+   726       122    1989465.0  16307.1      1.9              eigenvectors = reigenvecs[qpts_i]
+   727                                                   else:
+   728         1          8.0      8.0      0.0              eigenvectors = None
+   729                                           
+   730       123       1147.0      9.3      0.0          mode_gradients = None
+   731       123        805.0      6.5      0.0          if return_mode_gradients:
+   732                                                       max_real = np.amax(np.absolute(rmode_gradients.real))
+   733                                                       idx = np.where(
+   734                                                           rmode_gradients.imag/max_real > 1e-10)
+   735                                                       n_idx = len(idx[0])
+   736                                                       if n_idx > 0:
+   737                                                           n_print = n_idx if n_idx < 5 else 5
+   738                                                           warnings.warn(
+   739                                                               f'Unexpected values for mode gradients at {n_idx}/{rmode_gradients.size} '
+   740                                                               f'indices {[x for x in zip(*idx)][:n_print]}..., '
+   741                                                               f'expected near-zero imaginary elements, got values of '
+   742                                                               f'{rmode_gradients.imag[idx][:n_print]}..., compared to a '
+   743                                                               f'max real value of {max_real}. Data may have been lost '
+   744                                                               f'when casting to real mode gradients',
+   745                                                               stacklevel=3)
+   746                                                       mode_gradients = rmode_gradients.real[qpts_i]*ureg(
+   747                                                           'hartree*bohr').to(
+   748                                                               f'meV*{str(self.crystal.cell_vectors.units)}')
+   749       123        823.0      6.7      0.0          if return_mode_widths:
+   750                                                       mode_gradients = mode_gradients_to_widths(
+   751                                                           mode_gradients,
+   752                                                           self.crystal.cell_vectors)
+   753       123        946.0      7.7      0.0          return qpts, freqs, weights, eigenvectors, mode_gradients
+
+Total time: 376.441 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/powder.py
+Function: sample_sphere_structure_factor at line 195
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   195                                           @profile
+   196                                           def sample_sphere_structure_factor(
+   197                                               fc: ForceConstants,
+   198                                               mod_q: Quantity,
+   199                                               dw: DebyeWaller = None,
+   200                                               dw_spacing: Quantity = 0.025 * ureg('1/angstrom'),
+   201                                               temperature: Optional[Quantity] = 273. * ureg('K'),
+   202                                               sampling: str = 'golden',
+   203                                               npts: int = 1000, jitter: bool = False,
+   204                                               energy_bins: Quantity = None,
+   205                                               scattering_lengths: Union[str, Dict[str, Quantity]] = 'Sears1992',
+   206                                               **calc_modes_args
+   207                                               ) -> Spectrum1D:
+   208                                               """Sample structure factor, averaging over a sphere of constant |q|
+   209                                           
+   210                                               (Specifically, this is the one-phonon inelastic-scattering structure
+   211                                               factor as implemented in
+   212                                               QpointPhononModes.calculate_structure_factor().)
+   213                                           
+   214                                               Parameters
+   215                                               ----------
+   216                                               fc
+   217                                                   Force constant data for system
+   218                                               mod_q
+   219                                                   scalar radius of sphere from which vector q samples are taken
+   220                                               dw
+   221                                                   Debye-Waller exponent used for evaluation of scattering
+   222                                                   function. If not provided, this is generated automatically over
+   223                                                   Monkhorst-Pack q-point mesh determined by ``dw_spacing``.
+   224                                               dw_spacing
+   225                                                   Maximum distance between q-points in automatic q-point mesh (if used)
+   226                                                   for Debye-Waller calculation.
+   227                                               temperature
+   228                                                   Temperature for Debye-Waller calculation. If both temperature and dw
+   229                                                   are set to None, Debye-Waller factor will be omitted.
+   230                                               sampling
+   231                                                   Sphere-sampling scheme. (Case-insensitive) options are:
+   232                                                       - 'golden':
+   233                                                           Fibonnaci-like sampling that steps regularly along one
+   234                                                           spherical coordinate while making irrational steps in
+   235                                                           the other
+   236                                           
+   237                                                       - 'sphere-projected-grid':
+   238                                                           Regular 2-D square mesh projected onto sphere. npts will
+   239                                                           be distributed as evenly as possible (i.e. using twice
+   240                                                           as many 'longitude' as 'lattitude' lines), rounding up
+   241                                                           if necessary.
+   242                                           
+   243                                                       - 'spherical-polar-grid':
+   244                                                           Mesh over regular subdivisions in spherical polar
+   245                                                           coordinates.  npts will be rounded up as necessary in
+   246                                                           the same scheme as for sphere-projected-grid. 'Latitude'
+   247                                                           lines are evenly-spaced in z
+   248                                           
+   249                                                       - 'spherical-polar-improved':
+   250                                                           npts distributed as regularly as possible using
+   251                                                           spherical polar coordinates: 'latitude' lines are
+   252                                                           evenly-spaced in z and points are distributed among
+   253                                                           these rings to obtain most even spacing possible.
+   254                                           
+   255                                                       - 'random-sphere':
+   256                                                           Points are distributed randomly in unit square and
+   257                                                           projected onto sphere.
+   258                                               npts
+   259                                                   Number of samples. Note that some sampling methods have
+   260                                                   constraints on valid values and will round up as
+   261                                                   appropriate.
+   262                                               jitter
+   263                                                   For non-random sampling schemes, apply an additional random
+   264                                                   displacement to each point.
+   265                                               energy_bins
+   266                                                   Preferred energy bin edges. If not provided, will setup 1000
+   267                                                   bins (1001 bin edges) from 0 to 1.05 * [max energy]
+   268                                               scattering_lengths
+   269                                                   Dict of neutron scattering lengths labelled by element. If a
+   270                                                   string is provided, this selects coherent scattering lengths
+   271                                                   from reference data by setting the 'label' argument of the
+   272                                                   euphonic.util.get_reference_data() function.
+   273                                               **calc_modes_args
+   274                                                   other keyword arguments (e.g. 'use_c') will be passed to
+   275                                                   ForceConstants.calculate_qpoint_phonon_modes()
+   276                                           
+   277                                               Returns
+   278                                               -------
+   279                                               Spectrum1D
+   280                                           
+   281                                               """
+   282                                           
+   283       240       1031.0      4.3      0.0      if isinstance(scattering_lengths, str):
+   284       240        886.0      3.7      0.0          scattering_lengths = get_reference_data(
+   285       240        780.0      3.2      0.0              physical_property='coherent_scattering_length',
+   286       240    1222508.0   5093.8      0.3              collection=scattering_lengths)  # type: dict
+   287                                           
+   288       240        973.0      4.1      0.0      if temperature is not None:
+   289       240        856.0      3.6      0.0          if (dw is None):
+   290                                                       dw_qpts = mp_grid(fc.crystal.get_mp_grid_spec(dw_spacing))
+   291                                                       dw_phonons = fc.calculate_qpoint_phonon_modes(dw_qpts,
+   292                                                                                                     **calc_modes_args)
+   293                                                       dw = dw_phonons.calculate_debye_waller(temperature
+   294                                                                                              )  # type: DebyeWaller
+   295                                                   else:
+   296       240      82400.0    343.3      0.0              if not np.isclose(dw.temperature.to('K').magnitude,
+   297       240      41475.0    172.8      0.0                                temperature.to('K').magnitude):
+   298                                                           raise ValueError('Temperature argument is not consistent with '
+   299                                                                            'temperature stored in DebyeWaller object.')
+   300                                           
+   301       240  169012277.0 704217.8     44.9      qpts_cart = _get_qpts_sphere(npts, sampling=sampling, jitter=jitter
+   302       240    4617438.0  19239.3      1.2                                   ) * mod_q
+   303                                           
+   304       240     892932.0   3720.6      0.2      qpts_frac = _qpts_cart_to_frac(qpts_cart, fc.crystal)
+   305                                           
+   306       240  153657553.0 640239.8     40.8      phonons = fc.calculate_qpoint_phonon_modes(qpts_frac, **calc_modes_args
+   307                                                                                          )  # type: QpointPhononModes
+   308                                           
+   309       240       1042.0      4.3      0.0      if energy_bins is None:
+   310                                                   energy_bins = _get_default_bins(phonons)
+   311                                           
+   312       240        957.0      4.0      0.0      s = phonons.calculate_structure_factor(
+   313       240   27967583.0 116531.6      7.4          scattering_lengths=scattering_lengths, dw=dw)
+   314                                           
+   315       240   18940642.0  78919.3      5.0      return s.calculate_1d_average(energy_bins)
+
+Total time: 27.8232 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/qpoint_phonon_modes.py
+Function: calculate_structure_factor at line 157
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   157                                               @profile
+   158                                               def calculate_structure_factor(
+   159                                                   self,
+   160                                                   scattering_lengths: Union[str, Dict[str, Quantity]] = 'Sears1992',
+   161                                                   dw: Optional[DebyeWaller] = None,
+   162                                                   ) -> StructureFactor:
+   163                                                   """
+   164                                                   Calculate the one phonon inelastic scattering for neutrons at
+   165                                                   each q-point
+   166                                           
+   167                                                   Parameters
+   168                                                   ----------
+   169                                                   scattering_lengths
+   170                                                       Dataset of coherent scattering length for each
+   171                                                       element in the structure. This may be provided in 3 ways:
+   172                                           
+   173                                                       - A string naming an appropriate data collection packaged with
+   174                                                         Euphonic (including the default value 'Sears1992'). This will be
+   175                                                         passed to the ``collection`` argument of
+   176                                                         :obj:`euphonic.util.get_reference_data()`.
+   177                                           
+   178                                                       - A string filename for a user's customised data file in the same
+   179                                                         format as those packaged with Euphonic.
+   180                                           
+   181                                                       - An explicit dictionary of float Quantity, giving spin- and
+   182                                                         isotope-averaged coherent scattering length for each element in
+   183                                                         the structure, e.g.::
+   184                                           
+   185                                                           {'O': 5.803*ureg('fm'), 'Zn': 5.680*ureg('fm')}
+   186                                           
+   187                                                   dw
+   188                                                       Data for thermal motion effects. Typically this is computed over a
+   189                                                       converged Monkhort-Pack grid, which need not correspond to the
+   190                                                       q-points of this QpointPhononModes object.
+   191                                           
+   192                                                   Returns
+   193                                                   -------
+   194                                                   sf
+   195                                                       An object containing the structure factor for each q-point
+   196                                                       and phonon mode
+   197                                           
+   198                                                   Notes
+   199                                                   -----
+   200                                           
+   201                                                   This method calculates the mode-resolved (not binned in energy)
+   202                                                   one-phonon neutron scattering function
+   203                                                   :math:`S(Q, \\omega_{q\\nu})` **per atom**, as defined in [1]_. Note
+   204                                                   that internally Euphonic uses atomic units so :math:`\\hbar` has been
+   205                                                   omitted from the formulation:
+   206                                           
+   207                                                   .. math::
+   208                                           
+   209                                                     S(Q, \\omega_{q\\nu}) =
+   210                                                         \\frac{1}{2N_{atom}} \\
+   211                                                         \\left\\lvert \\
+   212                                                         \\sum\\limits_\\kappa\\frac{b_\\kappa}{M_{\\kappa}^{1/2}\\omega_{q\\nu}^{1/2}} \\
+   213                                                         [Q\\cdot\\epsilon_{q\\nu\\kappa\\alpha}]e^{iQ{\\cdot}r_\\kappa}e^{-W} \\
+   214                                                         \\right\\rvert^2
+   215                                           
+   216                                                   Where :math:`\\nu` runs over phonon modes, :math:`\\kappa` runs
+   217                                                   over atoms, :math:`\\alpha` runs over the Cartesian directions,
+   218                                                   :math:`b_\\kappa` is the coherent neutron scattering length,
+   219                                                   :math:`M_{\\kappa}` is the atom mass, :math:`r_{\\kappa}` is the
+   220                                                   vector to atom :math:`\\kappa` in the unit cell,
+   221                                                   :math:`\\epsilon_{q\\nu\\kappa\\alpha}` are the eigevectors,
+   222                                                   :math:`\\omega_{q\\nu}` are the frequencies and :math:`e^{-W}`
+   223                                                   is the Debye-Waller factor. :math:`N_{atom}` is the number of
+   224                                                   atoms in the unit cell, so the returned structure factor is
+   225                                                   **per atom** of sample.
+   226                                           
+   227                                                   .. [1] M.T. Dove, Structure and Dynamics, Oxford University Press, Oxford, 2003, 225-226
+   228                                           
+   229                                                   """
+   230       240       1220.0      5.1      0.0          if isinstance(scattering_lengths, str):
+   231                                                       scattering_length_data = get_reference_data(
+   232                                                           collection=scattering_lengths,
+   233                                                           physical_property='coherent_scattering_length')
+   234       240       1066.0      4.4      0.0          elif isinstance(scattering_lengths, dict):
+   235       240       1004.0      4.2      0.0              scattering_length_data = scattering_lengths
+   236                                                   else:
+   237                                                       raise TypeError((
+   238                                                           f'Unexpected type for scattering_lengths, should be str '
+   239                                                           f'or dict, got {type(scattering_lengths)}'))
+   240                                           
+   241       240       1064.0      4.4      0.0          sl = [scattering_length_data[x].to('bohr').magnitude
+   242       240     434263.0   1809.4      1.6                for x in self.crystal.atom_type]
+   243                                           
+   244                                                   # Calculate normalisation factor
+   245       240       5077.0     21.2      0.0          norm_factor = sl/np.sqrt(self.crystal._atom_mass)
+   246                                           
+   247                                                   # Calculate the exp factor for all atoms and qpts. atom_r is in
+   248                                                   # fractional coords, so Qdotr = 2pi*qh*rx + 2pi*qk*ry...
+   249       240       1733.0      7.2      0.0          exp_factor = np.exp(1J*2*math.pi*np.einsum(
+   250       240    1368400.0   5701.7      4.9              'ij,kj->ik', self.qpts, self.crystal.atom_r))
+   251                                           
+   252                                                   # Eigenvectors are in Cartesian so need to convert hkl to
+   253                                                   # Cartesian by computing dot with hkl and reciprocal lattice
+   254       240     374930.0   1562.2      1.3          recip = self.crystal.reciprocal_cell().to('1/bohr').magnitude
+   255       240      48421.0    201.8      0.2          Q = np.einsum('ij,jk->ik', self.qpts, recip)
+   256                                           
+   257                                                   # Calculate dot product of Q and eigenvectors for all branches
+   258                                                   # atoms and q-points
+   259       240   11904441.0  49601.8     42.8          eigenv_dot_q = np.einsum('ijkl,il->ijk', np.conj(self.eigenvectors), Q)
+   260                                           
+   261                                                   # Calculate Debye-Waller factors
+   262       240       1681.0      7.0      0.0          temperature = None
+   263       240       1263.0      5.3      0.0          if dw:
+   264       240     123005.0    512.5      0.4              temperature = dw.temperature
+   265       240       1679.0      7.0      0.0              if dw.crystal.n_atoms != self.crystal.n_atoms:
+   266                                                           raise ValueError((
+   267                                                               'The DebyeWaller object used as dw is not '
+   268                                                               'compatible with the QPointPhononModes object (they'
+   269                                                               ' have a different number of atoms)'))
+   270       240       1433.0      6.0      0.0              dw_factor = np.exp(-np.einsum('jkl,ik,il->ij',
+   271       240    1185098.0   4937.9      4.3                                            dw._debye_waller, Q, Q))
+   272       240      71452.0    297.7      0.3              exp_factor *= dw_factor
+   273                                           
+   274                                                   # Multiply Q.eigenvector, exp factor and normalisation factor
+   275       240    1558386.0   6493.3      5.6          term = np.einsum('ijk,ik,k->ij', eigenv_dot_q, exp_factor, norm_factor)
+   276                                           
+   277                                                   # Take mod squared and divide by frequency to get intensity
+   278       240       2024.0      8.4      0.0          sf = np.real(
+   279       240     661417.0   2755.9      2.4              np.absolute(term*np.conj(term))/np.absolute(self._frequencies))
+   280       240      44384.0    184.9      0.2          sf /= 2*self.crystal.n_atoms
+   281                                           
+   282       240       1070.0      4.5      0.0          return StructureFactor(
+   283       240    4808798.0  20036.7     17.3              self.crystal, self.qpts, self.frequencies,
+   284       240    4850691.0  20211.2     17.4              sf*ureg('bohr**2').to('mbarn'),
+   285       240     369219.0   1538.4      1.3              temperature=temperature)
+
+Total time: 37.1961 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/sampling.py
+Function: _spherical_polar_to_cartesian at line 103
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   103                                           @profile
+   104                                           def _spherical_polar_to_cartesian(phi, theta):
+   105   1867212   14450522.0      7.7     38.8      return (np.cos(phi) * np.sin(theta),
+   106   1867212   13222184.0      7.1     35.5              np.sin(phi) * np.sin(theta),
+   107   1867212    9523388.0      5.1     25.6              np.cos(theta))
+
+Total time: 20.4431 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/sampling.py
+Function: _square_to_spherical_polar at line 109
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   109                                           @profile
+   110                                           def _square_to_spherical_polar(x: float, y: float) -> Tuple[float, float]:
+   111                                               """Map from Cartesian square to spherical polar (phi, theta)"""
+   112   1867212    9066065.0      4.9     44.3      theta = np.arccos(2 * x - 1)
+   113   1867212    6009886.0      3.2     29.4      phi = 2 * np.pi * y
+   114   1867212    5367129.0      2.9     26.3      return (phi, theta)
+
+Total time: 136.185 s
+File: /usr/local/virtualenvs/euphonicenv/lib64/python3.6/site-packages/euphonic/sampling.py
+Function: golden_sphere at line 116
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   116                                           @profile
+   117                                           def golden_sphere(npts: int, cartesian: bool = True, jitter: bool = False,
+   118                                                             ) -> Iterator[Tuple[float, float, float]]:
+   119                                               """Yield a series of 3D points on unit sphere surface
+   120                                           
+   121                                               These resemble spherical Fibonacci point sets, using the golden
+   122                                               ratio to obtain an appropriate point set for any positive inter NPTS.
+   123                                               The method is outlined for "Quasi-Monte Carlo" sampling by
+   124                                               Marques et al. (2013) DOI:10.1111/cgf.12190
+   125                                           
+   126                                               Parameters
+   127                                               ----------
+   128                                           
+   129                                               npts
+   130                                                   Number of points at sphere surface
+   131                                           
+   132                                               cartesian
+   133                                                   Yield points in Cartesian coordinates. If False, the 3-tuple
+   134                                                   points are given in spherical coordinates.
+   135                                           
+   136                                               jitter
+   137                                                   Randomly displace points about their positions on surface
+   138                                           
+   139                                               Returns
+   140                                               -------
+   141                                               Iterator[Tuple[float, float, float]]
+   142                                           
+   143                                                   Sequence of (x, y, z) coordinates (if cartesian=True) or
+   144                                                   (r, phi, theta) spherical coordinates.
+   145                                               """
+   146   1867452   12797019.0      6.9      9.4      for x, y in golden_square(npts, jitter=jitter):
+   147   1867212   51146803.0     27.4     37.6          phi, theta = _square_to_spherical_polar(x, y)
+   148                                           
+   149   1867212    5413747.0      2.9      4.0          if cartesian:
+   150   1867212   66827482.0     35.8     49.1              yield _spherical_polar_to_cartesian(phi, theta)
+   151                                                   else:
+   152                                                       yield (1, phi, theta)
+
+Total time: 383.863 s
+File: powder_map_cprofile.py
+Function: main at line 6
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     6                                           @profile
+     7                                           def main():
+     8         1         17.0     17.0      0.0      fc_dir = os.path.join('..', 'force_constants')
+     9         1          9.0      9.0      0.0      fc = os.path.join(fc_dir, 'quartz.castep_bin')
+    10                                           
+    11         1          3.0      3.0      0.0      args = [fc,
+    12         1          3.0      3.0      0.0              '--n-threads', '30',
+    13         1          3.0      3.0      0.0              '-s', 'tmp.png',
+    14         1          3.0      3.0      0.0              '--npts-density', '10000',
+    15         1          3.0      3.0      0.0              '--dipole-parameter', '0.75',
+    16         1          3.0      3.0      0.0              '-w', 'coherent',
+    17         1          3.0      3.0      0.0              '--grid', '6', '6', '6',
+    18         1          4.0      4.0      0.0              '--temperature', '5']
+    19                                           
+    20                                               # Euphonic only - Coherent SF weighted
+    21         1  216329376.0 216329376.0     56.4      powder_map(args)
+    22                                           
+    23                                               # Brille - Coherent SF weighted
+    24         1          5.0      5.0      0.0      bri_args = [*args, '--use-brille', '--brille-npts', '10000']
+    25         1  167533284.0 167533284.0     43.6      powder_map(bri_args)
+
