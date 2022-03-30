@@ -8,8 +8,8 @@ from euphonic.brille import BrilleInterpolator
 from euphonic.util import mp_grid
 
 def main():
-    out_dir = os.path.join('profile', 'python', 'idaaas')
-    fc_dir = 'force_constants'
+    out_dir = os.path.join('..', 'profile_results', 'python', 'idaaas')
+    fc_dir = os.path.join('..', 'force_constants')
     n_repeats = 3
     fcs = ['quartz.castep_bin',
            'La2Zr2O7.castep_bin',

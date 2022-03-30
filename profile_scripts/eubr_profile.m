@@ -8,7 +8,7 @@ lattice = [1., 1., 1., 90, 90, 90];
 cut = d2d(lattice, [1 0 0 0], [-5,0.025,5], [0 1 0 0], [-5,0.025,5]);
 n_repeats = 2;
 
-fc_dir = 'force_constants';
+fc_dir = ['..', filesep, 'force_constants'];
 fcs = {euphonic.ForceConstants.from_castep([fc_dir, filesep, 'quartz.castep_bin']), ...
        euphonic.ForceConstants.from_castep([fc_dir, filesep, 'La2Zr2O7.castep_bin']), ...
        euphonic.ForceConstants.from_castep([fc_dir, filesep, 'Nb-181818-s0.5-NCP19-vib-disp.castep_bin'])};
@@ -17,7 +17,7 @@ dipole_params = {0.75, 1.0, 1.0};
 materials = ["Quartz", "La2Zr2O7", "Nb"];
 chunk = 0;
 filestr = sprintf("_%dqpts_%dchunk_%.0f", numel(cut.s), chunk, posixtime(datetime('now')));
-out_dir = ['profile', filesep, 'matlab', filesep, 'idaaas'];
+out_dir = ['..', filesep, 'profile_results', filesep, 'matlab', filesep, 'idaaas'];
 tictoc_fname = [out_dir, filesep, char(sprintf("eubr_tictoc%s.txt", filestr))];
 mprof_txt_fname = [out_dir, filesep, char(sprintf("eubr_mprof%s.txt", filestr))];
 mprof_fname = [out_dir, filesep, char(sprintf("eubr_mprof%s", filestr))];

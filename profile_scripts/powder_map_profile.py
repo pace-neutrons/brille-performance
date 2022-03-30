@@ -4,8 +4,8 @@ import time
 from euphonic.cli.powder_map import main as powder_map
 
 def main():
-    out_dir = os.path.join('profile', 'python', 'idaaas')
-    fc_dir = 'force_constants'
+    out_dir = os.path.join('..', 'profile_results', 'python', 'idaaas')
+    fc_dir = os.path.join('..', 'force_constants')
     n_repeats = 3
     fcs = ['quartz.castep_bin',
            'Nb-181818-s0.5-NCP19-vib-disp.castep_bin']
