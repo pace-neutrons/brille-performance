@@ -20,7 +20,7 @@ def main():
 
     # Brille init
     bri = BrilleInterpolator.from_force_constants(
-        fc, n_grid_points=10000,
+        fc, grid_npts=10000,
         interpolation_kwargs=interpolate_kwargs)
     # Brille interpolate
     bri.calculate_qpoint_phonon_modes(qpts, useparallel=True, threads=n_threads)

@@ -47,7 +47,7 @@ for i = 1:length(materials)
         fprintf(fileid,"%10.3f", time);
     end
     bri_args = {'interpolation_kwargs', struct(eu_interp_kwargs{:}), ...
-                'n_grid_points', brille_npts{i}};
+                'grid_npts', brille_npts{i}};
     fprintf(fileid, "\nBrille Init (s)\n", brille_npts{i}, materials(i));
     for j = 1:n_repeats
         tic;

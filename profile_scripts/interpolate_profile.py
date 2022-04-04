@@ -42,7 +42,7 @@ def main():
         for n in range(n_repeats):
             ti = time.time()
             bri = BrilleInterpolator.from_force_constants(
-                fci, n_grid_points=brille_npts[i],
+                fci, grid_npts=brille_npts[i],
                 interpolation_kwargs=interpolate_kwargs)
             tf = time.time()
             fobj.write(f'{tf - ti:10.3f}')
