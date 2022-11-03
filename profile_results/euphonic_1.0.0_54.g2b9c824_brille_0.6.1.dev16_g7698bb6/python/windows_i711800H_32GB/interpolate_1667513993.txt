@@ -1,0 +1,41 @@
+n_threads=16 --brille-npts=['10000', '20000', '5000', '500'] --dipole-parameter=['0.75', '1.0', '1.0', '0.4']
+
+Material: quartz.castep_bin
+Euphonic Interpolate
+     1.595     1.521     1.567
+Brille Init
+    29.948    28.854    28.822
+Brille Interpolate
+     9.623     9.688     8.972
+Structure Factor
+     2.316     2.224     2.135
+
+Material: Nb-181818-s0.5-NCP19-vib-disp.castep_bin
+Euphonic Interpolate
+     0.396     0.265     0.328
+Brille Init
+   168.132   170.754   168.946
+Brille Interpolate
+     7.744     8.079     8.107
+Structure Factor
+     0.227     0.197     0.184
+
+Material: La2Zr2O7.castep_bin
+Euphonic Interpolate
+     3.950     5.392     4.654
+Brille Init
+    17.724    17.948    17.601
+Brille Interpolate
+    55.561    37.247    38.240
+Structure Factor
+    21.499    12.946    12.645
+
+Material: AmSulf_298K.castep_bin note: 10,000 qpts used in this case to avoid memory issues
+Euphonic Interpolate
+    16.695    15.726    16.541
+Brille Init
+     5.767     5.744     5.737
+Brille Interpolate
+    11.721    11.795    11.202
+Structure Factor
+     3.322     3.117     3.153

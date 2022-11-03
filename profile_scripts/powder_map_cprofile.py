@@ -6,22 +6,24 @@ import io
 import inspect
 
 from euphonic.cli.powder_map import main as powder_map
-from utils import get_fc_path, get_create_results_path, NTHREADS
+from utils import get_fc_path, get_create_results_path, get_fc_info, NTHREADS
 
 def main(use_brille=False):
-    fc = str(get_fc_path('AmSulf_298K.castep_bin'))
+    fc_info = get_fc_info()
+    fc = fc_info[3] # 3 = AmSulf
+    fc_file = str(get_fc_path(fc['filename']))
 
-    args = [fc,
+    args = [fc_file,
             '--n-threads', str(NTHREADS),
             '-s', 'tmp.png',
             '--npts-density', '10000',
-            '--dipole-parameter', '0.75',
+            '--dipole-parameter', fc['sdipole_parameter'],
             '-w', 'coherent',
             '--grid', '6', '6', '6',
             '--temperature', '5']
 
     if use_brille:
-        args += ['--use-brille', '--brille-npts', '10000']
+        args += ['--use-brille', '--brille-npts', fc['sbrille_npts']]
 
     powder_map(args)
 
@@ -35,7 +37,7 @@ if __name__ == '__main__':
         pr.disable()
 
         strio = io.StringIO()
-        stats = pstats.Stats(pr, stream=strio).sort_stats('tottime')
+        stats = pstats.Stats(pr, stream=strio).sort_stats('cumtime')
         stats.print_stats()
 
         with open(out_file, 'a') as f:
