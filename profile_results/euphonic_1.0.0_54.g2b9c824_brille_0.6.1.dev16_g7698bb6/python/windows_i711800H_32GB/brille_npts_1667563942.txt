@@ -1,0 +1,123 @@
+n_threads=16 --brille-npts=[50, 100, 250, 500, 750, 1000, 1250, 1500, 2000, 2500] --dipole-parameter=0.4
+
+Material: AmSulf_298K.castep_bin
+
+
+Brille Npts: 50
+
+Brille Init
+     3.288     0.956     0.893
+Brille Interpolate
+    11.895    11.969    13.760
+
+Brille Npts: 100
+
+Brille Init
+     4.812     1.737     1.648
+Brille Interpolate
+    14.631    13.750    13.738
+
+Brille Npts: 250
+
+Brille Init
+     6.209     3.309     3.298
+Brille Interpolate
+    13.873    13.377    13.336
+
+Brille Npts: 500
+
+Brille Init
+     8.741     5.835     5.896
+Brille Interpolate
+    14.392    14.111    13.474
+
+Brille Npts: 750
+
+Brille Init
+    11.481     8.615     9.118
+Brille Interpolate
+    13.793    13.850    13.703
+
+Brille Npts: 1000
+
+Brille Init
+    14.101    12.075    11.825
+Brille Interpolate
+    14.178    13.912    13.436
+
+Brille Npts: 1250
+
+Brille Init
+    16.432    13.432    13.825
+Brille Interpolate
+    14.379    13.479    13.026
+
+Brille Npts: 1500
+
+Brille Init
+    18.341    15.458    16.092
+Brille Interpolate
+    13.748    13.393    13.812
+
+Brille Npts: 2000
+
+Brille Init
+    22.656    19.887    20.563
+Brille Interpolate
+    17.786    13.897    13.092
+
+Brille Npts: 2500
+
+Brille Init
+    26.683    24.565    25.917
+Brille Interpolate
+    13.618    13.962    13.608
+
+Brille Npts: 3000
+
+Brille Init
+    27.934    27.082    27.585
+Brille Interpolate
+    11.831    11.656    11.406
+
+Brille Npts: 3500
+
+Brille Init
+    35.187    38.091    35.687
+Brille Interpolate
+    11.781    11.701    11.644
+
+Brille Npts: 4000
+
+Brille Init
+    41.296    40.785    39.445
+Brille Interpolate
+    14.525    14.431    14.291
+
+Brille Npts: 4500
+
+Brille Init
+    45.080    45.451    45.093
+Brille Interpolate
+    14.616    14.765    13.725
+
+Brille Npts: 5000
+
+Brille Init
+    48.586    51.309    50.907
+Brille Interpolate
+    13.539    13.210    13.415
+
+Brille Npts: 7500
+
+Brille Init
+    71.017    74.148    72.683
+Brille Interpolate
+    14.424    13.936    14.336
+
+Brille Npts: 10000
+
+Brille Init
+    98.464   105.291   100.525
+Brille Interpolate
+    13.762    13.038    13.037

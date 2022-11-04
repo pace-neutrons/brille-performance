@@ -15,8 +15,6 @@ def main():
     fc_info = get_fc_info()
     qpts = np.loadtxt('qpts_160801.txt')
 
-    n_threads = NTHREADS
-
     fobj = open(os.path.join(out_dir, f'interpolate_{int(time.time())}.txt'), 'w')
     fwrite(fobj, f'n_threads={NTHREADS} --brille-npts={[fc["sbrille_npts"] for fc in fc_info]} --dipole-parameter={[fc["sdipole_parameter"] for fc in fc_info]}')
 
