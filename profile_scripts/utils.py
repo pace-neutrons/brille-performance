@@ -28,10 +28,10 @@ def get_fc_path(fc_filename):
     return Path(f'../force_constants/{fc_filename}')
 
 
-def get_create_results_path():
+def get_create_results_path(lang='python'):
     """Get path to results dir """
     path = Path(
-        f'../profile_results/{get_version_dirname()}/python/{PLATFORM}')
+        f'../profile_results/{get_version_dirname()}/{lang}/{PLATFORM}')
     path.mkdir(parents=True, exist_ok=True)
     return path
 
