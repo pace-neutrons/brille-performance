@@ -1,0 +1,849 @@
+         1958106 function calls (1957316 primitive calls) in 49.227 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.928    0.928   49.227   49.227 interpolate_cprofile.py:15(main)
+        4    0.986    0.246   39.296    9.824 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:426(_calculate_phonons_at_qpts)
+        4   35.593    8.898   35.593    8.898 {built-in method euphonic._euphonic.calculate_phonons}
+        3    0.071    0.024   23.518    7.839 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:164(calculate_qpoint_phonon_modes)
+        1    0.002    0.002   15.862   15.862 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:395(calculate_qpoint_frequencies)
+        1    0.116    0.116    5.021    5.021 c:\users\mll13652\documents\pace_project\euphonic\euphonic\brille.py:129(from_force_constants)
+        2    4.476    2.238    4.510    2.255 c:\users\mll13652\documents\pace_project\euphonic\euphonic\brille.py:115(_br_grid_calculate_phonons)
+        1    1.692    1.692    3.766    3.766 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_phonon_modes.py:166(calculate_structure_factor)
+160405/160229    0.241    0.000    3.464    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
+    90837    0.029    0.000    2.825    0.000 <__array_function__ internals>:177(einsum)
+    90837    0.016    0.000    2.685    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\einsumfunc.py:1009(einsum)
+    90837    2.669    0.000    2.669    0.000 {built-in method numpy.core._multiarray_umath.c_einsum}
+        1    0.000    0.000    2.279    2.279 c:\users\mll13652\documents\pace_project\euphonic\euphonic\brille.py:61(calculate_qpoint_phonon_modes)
+        1    0.000    0.000    2.239    2.239 c:\users\mll13652\documents\pace_project\euphonic\euphonic\brille.py:88(calculate_qpoint_frequencies)
+        1    0.785    0.785    1.449    1.449 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:948(_dipole_correction_init)
+        1    0.523    0.523    0.996    0.996 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:1564(_calculate_supercell_images)
+    50790    0.021    0.000    0.518    0.000 <__array_function__ internals>:177(sum)
+    50790    0.038    0.000    0.473    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2162(sum)
+    50807    0.038    0.000    0.443    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:69(_wrapreduction)
+        1    0.030    0.030    0.390    0.390 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_phonon_modes.py:296(calculate_debye_waller)
+    50928    0.386    0.000    0.386    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+        4    0.000    0.000    0.140    0.035 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:372(__init__)
+        4    0.000    0.000    0.140    0.035 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:401(__init__)
+        4    0.000    0.000    0.140    0.035 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:552(_load_libraries)
+        4    0.104    0.026    0.140    0.035 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:617(_find_libraries_with_enum_process_module_ex)
+       27    0.000    0.000    0.096    0.004 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\quantity.py:49(__array_ufunc__)
+       27    0.000    0.000    0.095    0.004 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:937(numpy_wrap)
+       27    0.023    0.001    0.095    0.004 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:285(implementation)
+    18065    0.007    0.000    0.082    0.000 <__array_function__ internals>:177(where)
+      773    0.010    0.000    0.071    0.000 {built-in method builtins.any}
+       54    0.000    0.000    0.069    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:43(_is_sequence_with_quantity_elements)
+        1    0.000    0.000    0.069    0.069 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:1816(from_castep)
+      4/3    0.000    0.000    0.062    0.021 <frozen importlib._bootstrap>:986(_find_and_load)
+      4/3    0.000    0.000    0.062    0.021 <frozen importlib._bootstrap>:956(_find_and_load_unlocked)
+      7/4    0.000    0.000    0.062    0.015 <frozen importlib._bootstrap>:211(_call_with_frames_removed)
+      4/3    0.000    0.000    0.060    0.020 <frozen importlib._bootstrap>:650(_load_unlocked)
+        1    0.010    0.010    0.060    0.060 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:359(read_interpolation_data)
+   123192    0.036    0.000    0.060    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:59(<genexpr>)
+        1    0.000    0.000    0.055    0.055 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\npyio.py:1061(loadtxt)
+        1    0.000    0.000    0.055    0.055 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\npyio.py:781(_read)
+        4    0.000    0.000    0.055    0.014 <frozen importlib._bootstrap>:549(module_from_spec)
+        1    0.000    0.000    0.055    0.055 <frozen importlib._bootstrap_external>:1164(create_module)
+        1    0.055    0.055    0.055    0.055 {built-in method _imp.create_dynamic}
+        1    0.052    0.052    0.054    0.054 {built-in method numpy.core._multiarray_umath._load_from_filelike}
+       64    0.000    0.000    0.051    0.001 <__array_function__ internals>:177(concatenate)
+     9310    0.005    0.000    0.039    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:557(_read_entry)
+      116    0.000    0.000    0.038    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:504(to)
+       27    0.000    0.000    0.036    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:63(_get_first_input_units)
+      672    0.002    0.000    0.035    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:680(_make_controller_from_path)
+       27    0.000    0.000    0.034    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:101(convert_to_consistent_units)
+       81    0.000    0.000    0.034    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:111(<genexpr>)
+       54    0.000    0.000    0.034    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:74(convert_arg)
+      116    0.000    0.000    0.032    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:466(_convert_magnitude_not_inplace)
+      116    0.000    0.000    0.032    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:878(convert)
+      101    0.001    0.000    0.032    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\context\registry.py:354(_convert)
+      101    0.000    0.000    0.027    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\registry.py:165(_convert)
+   461519    0.027    0.000    0.027    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\einsumfunc.py:1001(_einsum_dispatcher)
+      101    0.020    0.000    0.025    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:913(_convert)
+      168    0.000    0.000    0.025    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:124(_realpath)
+      168    0.001    0.000    0.025    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:625(realpath)
+   123246    0.016    0.000    0.024    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:26(_is_quantity)
+      336    0.022    0.000    0.022    0.000 {built-in method nt._getfinalpathname}
+        7    0.000    0.000    0.021    0.003 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_frequencies.py:37(__init__)
+    27923    0.016    0.000    0.016    0.000 {method 'read' of '_io.BufferedReader' objects}
+    50807    0.015    0.000    0.015    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:70(<dictcomp>)
+      161    0.015    0.000    0.015    0.000 {method 'repeat' of 'numpy.ndarray' objects}
+       14    0.000    0.000    0.014    0.001 <__array_function__ internals>:177(amax)
+       14    0.000    0.000    0.014    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2677(amax)
+        9    0.000    0.000    0.012    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:289(full)
+       10    0.000    0.000    0.012    0.001 <__array_function__ internals>:177(copyto)
+        1    0.000    0.000    0.011    0.011 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_frequencies.py:77(frequencies)
+        1    0.000    0.000    0.010    0.010 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:172(get_reference_data)
+        4    0.000    0.000    0.010    0.002 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_phonon_modes.py:43(__init__)
+       28    0.000    0.000    0.009    0.000 <__array_function__ internals>:177(unique)
+       28    0.000    0.000    0.009    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\arraysetops.py:138(unique)
+        1    0.000    0.000    0.009    0.009 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:1685(from_dict)
+125115/125088    0.009    0.000    0.009    0.000 {built-in method builtins.hasattr}
+       28    0.001    0.000    0.009    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\arraysetops.py:323(_unique1d)
+        1    0.000    0.000    0.008    0.008 <__array_function__ internals>:177(inv)
+        1    0.008    0.008    0.008    0.008 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:483(inv)
+    60491    0.008    0.000    0.008    0.000 {built-in method builtins.isinstance}
+       87    0.008    0.000    0.008    0.000 {method 'astype' of 'numpy.ndarray' objects}
+    18620    0.005    0.000    0.008    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:580(record_mark_read)
+        2    0.000    0.000    0.007    0.004 c:\users\mll13652\documents\pace_project\euphonic\euphonic\io.py:79(_process_dict)
+       36    0.000    0.000    0.007    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:1211(parse_expression)
+        1    0.000    0.000    0.007    0.007 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_common.py:33(wrapper)
+        1    0.000    0.000    0.007    0.007 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_common.py:51(files)
+  423/421    0.000    0.000    0.007    0.000 <frozen importlib._bootstrap>:1017(_handle_fromlist)
+        1    0.000    0.000    0.007    0.007 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_common.py:107(from_package)
+       10    0.007    0.001    0.007    0.001 {built-in method numpy.fromfile}
+       28    0.007    0.000    0.007    0.000 {method 'argsort' of 'numpy.ndarray' objects}
+        2    0.000    0.000    0.007    0.003 {built-in method builtins.__import__}
+        1    0.000    0.000    0.007    0.007 c:\users\mll13652\documents\pace_project\euphonic\euphonic\structure_factor.py:44(__init__)
+        7    0.000    0.000    0.007    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:106(reciprocal_cell)
+        4    0.000    0.000    0.006    0.002 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:104(_ensure_contiguous_attrs)
+      3/2    0.000    0.000    0.005    0.003 <frozen importlib._bootstrap_external>:837(exec_module)
+        1    0.000    0.000    0.005    0.005 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_phonon_modes.py:250(<listcomp>)
+        1    0.001    0.001    0.005    0.005 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:210(get_symmetry_equivalent_atoms)
+      409    0.001    0.000    0.005    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:198(__new__)
+      672    0.000    0.000    0.005    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:214(basename)
+      143    0.000    0.000    0.005    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\registry.py:56(_parse_units)
+      676    0.003    0.000    0.004    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:180(split)
+      143    0.001    0.000    0.004    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:1072(_parse_units)
+    50790    0.004    0.000    0.004    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2157(_sum_dispatcher)
+      566    0.001    0.000    0.004    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:573(get_name)
+        3    0.000    0.000    0.004    0.001 <frozen importlib._bootstrap_external>:909(get_code)
+      348    0.000    0.000    0.004    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:878(to_units_container)
+        1    0.000    0.000    0.004    0.004 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:91(wrap_spec)
+    52029    0.004    0.000    0.004    0.000 {method 'items' of 'dict' objects}
+    79/50    0.000    0.000    0.004    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\pint_eval.py:130(build_eval_tree)
+        3    0.000    0.000    0.004    0.001 <frozen importlib._bootstrap_external>:1029(get_data)
+      101    0.000    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:746(_get_root_units)
+        5    0.003    0.001    0.003    0.001 {built-in method numpy.ascontiguousarray}
+        1    0.000    0.000    0.003    0.003 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:47(get_resource_reader)
+        3    0.003    0.001    0.003    0.001 {built-in method io.open_code}
+      258    0.000    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\compat.py:32(tokenizer)
+      404    0.000    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:645(_get_dimensionality)
+   211/12    0.001    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:818(_get_root_units_recurse)
+        2    0.000    0.000    0.003    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:303(get_symmetry_dataset)
+    96/50    0.000    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\pint_eval.py:89(evaluate)
+     1015    0.001    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:816(__new__)
+35749/35688    0.003    0.000    0.003    0.000 {built-in method builtins.len}
+     48/2    0.000    0.000    0.003    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\copy.py:128(deepcopy)
+      3/2    0.000    0.000    0.003    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\copy.py:226(_deepcopy_dict)
+       33    0.003    0.000    0.003    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:158(__setattr__)
+       76    0.000    0.000    0.003    0.000 {built-in method builtins.setattr}
+       13    0.003    0.000    0.003    0.000 {built-in method nt.stat}
+      105    0.000    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:94(wrapped)
+      249    0.000    0.000    0.003    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\encodings\cp1252.py:22(decode)
+       13    0.003    0.000    0.003    0.000 {method '__deepcopy__' of 'numpy.ndarray' objects}
+        2    0.003    0.001    0.003    0.001 {built-in method spglib._spglib.dataset}
+        3    0.002    0.001    0.003    0.001 {built-in method io.open}
+      249    0.002    0.000    0.002    0.000 {built-in method _codecs.charmap_decode}
+       58    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:964(parse_unit_name)
+        4    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap>:890(_find_spec)
+       58    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:1020(_dedup_candidates)
+        4    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap_external>:1399(find_spec)
+       93    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:1130(__mul__)
+        4    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap_external>:1367(_get_spec)
+       98    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:81(wrapped)
+        4    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap_external>:1498(find_spec)
+        1    0.000    0.000    0.002    0.002 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:261(<dictcomp>)
+       98    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:1050(_mul_div)
+       58    0.000    0.000    0.002    0.000 {built-in method fromkeys}
+       11    0.000    0.000    0.002    0.000 <frozen importlib._bootstrap_external>:135(_path_stat)
+       35    0.000    0.000    0.002    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:106(get_all_origins)
+     2688    0.001    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:733(_check_prefix)
+      144    0.001    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:989(_parse_unit_name)
+      3/2    0.000    0.000    0.002    0.001 {built-in method builtins.exec}
+    16017    0.002    0.000    0.002    0.000 {method 'startswith' of 'str' objects}
+       50    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:779(string_preprocessor)
+       11    0.000    0.000    0.002    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:1316(_get_shell_origins)
+       29    0.000    0.000    0.002    0.000 <__array_function__ internals>:177(cross)
+    46693    0.002    0.000    0.002    0.000 {method 'strip' of 'bytes' objects}
+      308    0.001    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\tokenize.py:429(_tokenize)
+       51    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:1256(<lambda>)
+       29    0.001    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1485(cross)
+        1    0.000    0.000    0.002    0.002 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:1(<module>)
+        1    0.000    0.000    0.002    0.002 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:312(from_dict)
+       51    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:1117(_eval_token)
+     1021    0.001    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:124(splitdrive)
+    18623    0.002    0.000    0.002    0.000 {built-in method _struct.unpack}
+       14    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:598(from_string)
+      202    0.000    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\registry.py:122(_validate_and_extract)
+        4    0.000    0.000    0.002    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:133(born)
+        2    0.000    0.000    0.002    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:173(to_spglib_cell)
+      500    0.001    0.000    0.002    0.000 {method 'sub' of 're.Pattern' objects}
+    18065    0.002    0.000    0.002    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\multiarray.py:341(where)
+       49    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:1041(parse_units)
+       27    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:137(get_op_output_unit)
+       22    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:325(__getattr__)
+      238    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:375(UnitsContainer)
+      171    0.001    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:450(normpath)
+  197/175    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\unit.py:39(__init__)
+        4    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:154(_path_isfile)
+        4    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:145(_path_is_mode_type)
+       30    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:9(_check_constructor_inputs)
+       92    0.000    0.000    0.001    0.000 <__array_function__ internals>:177(moveaxis)
+       29    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:613(get_symbol)
+      795    0.001    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:433(__eq__)
+       79    0.000    0.000    0.001    0.000 <__array_function__ internals>:177(tile)
+      202    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\registry.py:124(<listcomp>)
+      300    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:671(__eq__)
+       92    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1410(moveaxis)
+        1    0.000    0.000    0.001    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:58(get_symmetry)
+        2    0.000    0.000    0.001    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:81(cell_vectors)
+      264    0.001    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:334(__init__)
+       79    0.001    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\shape_base.py:1191(tile)
+       58    0.001    0.000    0.001    0.000 {built-in method numpy.zeros}
+        1    0.000    0.000    0.001    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:38(__init__)
+     1018    0.000    0.000    0.001    0.000 {built-in method builtins.getattr}
+        1    0.000    0.000    0.001    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:155(open)
+       12    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:805(__init__)
+        1    0.000    0.000    0.001    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:487(open)
+    120/7    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:671(_get_dimensionality_recurse)
+       14    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ctypes\__init__.py:339(__init__)
+        8    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:841(__init__)
+        1    0.000    0.000    0.001    0.001 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\twodim_base.py:1017(triu_indices)
+        3    0.001    0.000    0.001    0.000 {built-in method builtins.print}
+      200    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:51(_wrapfunc)
+       50    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\tokenize.py:404(tokenize)
+     1091    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\abc.py:96(__instancecheck__)
+       72    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:52(<genexpr>)
+        3    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\twodim_base.py:1099(<genexpr>)
+       16    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\formatting\objects.py:181(__str__)
+       16    0.000    0.000    0.001    0.000 {built-in method builtins.format}
+        1    0.000    0.000    0.001    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:470(_read_cell)
+       26    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:57(is_gamma)
+      120    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:478(__mul__)
+      448    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:912(__contains__)
+       16    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\formatting\objects.py:184(__format__)
+       36    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:92(_replace_dim)
+      203    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\registry.py:107(_is_multiplicative)
+    24/21    0.000    0.000    0.001    0.000 {built-in method builtins.__build_class__}
+      106    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:505(__truediv__)
+        1    0.000    0.000    0.001    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\debye_waller.py:30(__init__)
+       61    0.000    0.000    0.001    0.000 <__array_function__ internals>:177(norm)
+       86    0.000    0.000    0.001    0.000 <__array_function__ internals>:177(repeat)
+       28    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\unit.py:136(__mul__)
+        1    0.000    0.000    0.001    0.001 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:62(__init__)
+     2154    0.001    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:420(__hash__)
+      818    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:742(__iter__)
+      337    0.001    0.000    0.001    0.000 {built-in method numpy.array}
+      184    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1347(normalize_axis_tuple)
+        4    0.000    0.000    0.001    0.000 <__array_function__ internals>:177(det)
+      100    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ctypes\__init__.py:383(__getattr__)
+      283    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:358(copy)
+        4    0.001    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:2100(det)
+      168    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:61(isabs)
+       50    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\tokenize.py:295(detect_encoding)
+      520    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\compat.py:52(_to_magnitude)
+     1091    0.000    0.000    0.001    0.000 {built-in method _abc._abc_instancecheck}
+       61    0.000    0.000    0.001    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:2357(norm)
+        8    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:142(_cell_volume)
+        4    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:1232(_get_q_dirs)
+        8    0.000    0.000    0.001    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:435(_cell_vectors_to_volume)
+     1575    0.000    0.000    0.001    0.000 {built-in method __new__ of type object at 0x00007FFE564CCC90}
+       86    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:436(repeat)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:344(_findfile)
+      108    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\tokenize.py:98(_compile)
+  190/184    0.000    0.000    0.000    0.000 {built-in method _operator.mul}
+       29    0.000    0.000    0.000    0.000 <string>:2(__init__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\brille\lattice.py:10(Lattice)
+      283    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:469(__copy__)
+     1512    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:892(__getitem__)
+        2    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(broadcast_to)
+      100    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ctypes\__init__.py:390(__getitem__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\stride_tricks.py:367(broadcast_to)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:160(__init__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\stride_tricks.py:340(_broadcast_to)
+       36    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(column_stack)
+      450    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\re.py:325(_subx)
+      108    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\re.py:250(compile)
+      440    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:389(parent)
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:396(format_unit)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:431(exists)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\genericpath.py:16(exists)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\definitions.py:126(__post_init__)
+     1012    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:408(__iter__)
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:193(get_species_idx)
+       97    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:312(units)
+      120    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\objects.py:20(_get_non_multiplicative_units)
+       14    0.000    0.000    0.000    0.000 {built-in method _ctypes.LoadLibrary}
+       60    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(array_equal)
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\unit.py:161(__rtruediv__)
+        4    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:138(_ensure_contiguous_args)
+      210    0.000    0.000    0.000    0.000 {method 'match' of 're.Pattern' objects}
+       10    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\pint_eval.py:33(_power)
+       72    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:159(_get_dtype)
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:227(format_default)
+      108    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\re.py:289(_compile)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:171(__exit__)
+       56    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:155(<genexpr>)
+      336    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:44(normcase)
+       52    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:38(_wrapit)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_itertools.py:1(<module>)
+       36    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\shape_base.py:612(column_stack)
+      448    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:676(items)
+      844    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:34(_get_bothseps)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:181(restore_original_limits)
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:856(set_num_threads)
+       30    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(cumsum)
+       60    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:2402(array_equal)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:776(_get_windll)
+     2095    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:207(<listcomp>)
+      5/4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:255(inner)
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\debye_waller.py:70(temperature)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:412(info)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:414(<listcomp>)
+       12    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:813(info)
+      136    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numerictypes.py:356(issubdtype)
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:1149(__rtruediv__)
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:481(split_format)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:867(get_version)
+       75    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(transpose)
+       30    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2497(cumsum)
+       10    0.000    0.000    0.000    0.000 {built-in method _operator.pow}
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:255(formatter)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:1(<module>)
+      120    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\objects.py:22(<listcomp>)
+      101    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:915(__bool__)
+      101    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:276(find_shortest_path)
+     19/9    0.000    0.000    0.000    0.000 {built-in method _operator.truediv}
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:78(mp_grid)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:677(__getitem__)
+      140    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+      610    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:411(__len__)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:572(eval_token)
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:1312(__pow__)
+      343    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\definitions.py:185(is_multiplicative)
+     1352    0.000    0.000    0.000    0.000 {built-in method _ctypes.byref}
+       30    0.000    0.000    0.000    0.000 {method 'cumsum' of 'numpy.ndarray' objects}
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\abc.py:84(__new__)
+       32    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:474(remove_custom_flags)
+      896    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:913(<genexpr>)
+       12    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:818(num_threads)
+       14    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:519(__rtruediv__)
+     2390    0.000    0.000    0.000    0.000 {built-in method nt.fspath}
+      946    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:414(__getitem__)
+       26    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:547(__init__)
+       23    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:494(__pow__)
+       28    0.000    0.000    0.000    0.000 {method 'flatten' of 'numpy.ndarray' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1070(path_stats)
+     1114    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:42(CompatibilityFiles)
+       18    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:551(from_word)
+       16    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:91(_path_join)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:66(_file_reader)
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:120(_type_check)
+      368    0.000    0.000    0.000    0.000 {built-in method numpy.asarray}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:638(_compile_bytecode)
+       75    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:601(transpose)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:870(wrapper)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:477(_init_module_attrs)
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\brille.py:31(__init__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:685(<genexpr>)
+       60    0.000    0.000    0.000    0.000 {method 'all' of 'numpy.ndarray' objects}
+     1119    0.000    0.000    0.000    0.000 {built-in method builtins.iter}
+       50    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\qpoint_frequencies.py:86(__setattr__)
+        3    0.000    0.000    0.000    0.000 {built-in method marshal.loads}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:814(dispatch)
+       34    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:361(add)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:1146(__truediv__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:1478(_expand_cell)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:1102(getfullargspec)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:846(get_num_threads)
+       96    0.000    0.000    0.000    0.000 {built-in method numpy.empty}
+      272    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numerictypes.py:282(issubclass_)
+      287    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:312(copy)
+      108    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\types.py:171(__get__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\json\__init__.py:274(load)
+      730    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+       50    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\tokenize.py:325(find_cookie)
+      460    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
+       10    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(append)
+       60    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\_methods.py:60(_all)
+      506    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:698(__init__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:221(dirname)
+      348    0.000    0.000    0.000    0.000 {method 'mro' of 'type' objects}
+      163    0.000    0.000    0.000    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:147(__enter__)
+        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:354(cache_from_source)
+       22    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:957(getattr_maybe_raise)
+    32/15    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\abc.py:100(__subclasscheck__)
+      568    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\compat.py:181(is_upcast_type)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:278(_set_threadpool_limits)
+      513    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:152(force_ndarray)
+      175    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+       10    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\function_base.py:5389(append)
+      4/2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2218(_signature_from_callable)
+    32/15    0.000    0.000    0.000    0.000 {built-in method _abc._abc_subclasscheck}
+      184    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1397(<listcomp>)
+        7    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:376(cached)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:770(_find_impl)
+      409    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\registry.py:184(get)
+      126    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:826(_check)
+       69    0.000    0.000    0.000    0.000 {built-in method numpy.arange}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:484(_get_cached)
+      168    0.000    0.000    0.000    0.000 {built-in method nt.getcwd}
+      105    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:58(_check_unit_conversion)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:1402(exists)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:729(_compose_mro)
+      101    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\weakref.py:142(__len__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:1193(stat)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:1039(__new__)
+       50    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\json\__init__.py:299(loads)
+      101    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\context\objects.py:263(graph)
+      395    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:900(_get_architecture)
+      123    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:1541(_get_unit_definition)
+      513    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:156(force_ndarray_like)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2124(_signature_from_function)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:884(_get_threading_layer)
+        9    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(reshape)
+      513    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+      167    0.000    0.000    0.000    0.000 {method 'transpose' of 'numpy.ndarray' objects}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:157(_get_module_lock)
+       96    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\pint_eval.py:71(__init__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:678(_from_parts)
+      216    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\json\decoder.py:332(decode)
+       20    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:23(_join)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\twodim_base.py:376(tri)
+        8    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(dot)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:658(_parse_args)
+      336    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:659(__init__)
+       81    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\quantity.py:55(<genexpr>)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(insert)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\function_base.py:5195(insert)
+      116    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:719(__iter__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\json\decoder.py:343(raw_decode)
+      131    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\validate.py:46(<genexpr>)
+      2/1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:684(_c3_mro)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:298(__exit__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:726(__truediv__)
+       36    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\shape_base.py:608(_column_stack_dispatcher)
+      271    0.000    0.000    0.000    0.000 {built-in method numpy.core._multiarray_umath.normalize_axis_index}
+        3    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(prod)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:303(_isurl)
+      274    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:395(non_int_type)
+      170    0.000    0.000    0.000    0.000 {method 'decode' of 'bytes' objects}
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:681(operate)
+       79    0.000    0.000    0.000    0.000 {built-in method builtins.all}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\arraysetops.py:310(reshape_uniq)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:689(copy_with)
+        1    0.000    0.000    0.000    0.000 {method 'close' of '_io.TextIOWrapper' objects}
+       50    0.000    0.000    0.000    0.000 {method 'startswith' of 'bytes' objects}
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\urllib\parse.py:369(urlparse)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1493(_get_spec)
+       54    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:984(iterable)
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:198(reshape)
+       58    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:672(keys)
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:441(_get_unique_elems_and_idx)
+       50    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\tokenize.py:319(read_or_stop)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:1060(__init_subclass__)
+      205    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+       10    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\structure_factor.py:116(__setattr__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:64(parse_parts)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2927(prod)
+       81    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:951(<genexpr>)
+      2/1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:347(__getitem__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:187(_subs_tvars)
+       50    0.000    0.000    0.000    0.000 {method 'encode' of 'str' objects}
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\objects.py:15(_is_multiplicative)
+        1    0.000    0.000    0.000    0.000 {method 'read' of '_io.TextIOWrapper' objects}
+      375    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\definitions.py:180(is_base)
+       13    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:906(__iter__)
+      343    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\converters.py:26(is_multiplicative)
+      204    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+      108    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\enum.py:753(value)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:58(__init__)
+        6    0.000    0.000    0.000    0.000 {method 'view' of 'numpy.ndarray' objects}
+       12    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:816(<dictcomp>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:1017(get_num_threads)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:375(abspath)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:149(ones)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:762(__setattr__)
+        1    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        8    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(ravel)
+      167    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:795(_is_dim)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:1021(set_num_threads)
+      165    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\shape_base.py:1273(<genexpr>)
+      2/1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:722(<listcomp>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:720(__pow__)
+      182    0.000    0.000    0.000    0.000 {built-in method numpy.asanyarray}
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:946(__setitem__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:263(_iszip)
+        7    0.000    0.000    0.000    0.000 {built-in method _abc._abc_init}
+       14    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\compat.py:195(is_duck_array_type)
+        1    0.000    0.000    0.000    0.000 {method 'outer' of 'numpy.ufunc' objects}
+        2    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(real)
+      159    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\shape_base.py:1263(<genexpr>)
+       32    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:701(__len__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:802(__getitem__)
+        7    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:127(_path_split)
+       54    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:1006(sized)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:294(_possible_names)
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:205(<listcomp>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ctypes\__init__.py:272(create_unicode_buffer)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:78(acquire)
+       32    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:459(extract_custom_flags)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:16(__init__)
+       13    0.000    0.000    0.000    0.000 {built-in method nt._getfullpathname}
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\urllib\parse.py:425(urlsplit)
+       59    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\quantity.py:162(shape)
+      135    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:151(__exit__)
+       20    0.000    0.000    0.000    0.000 {method 'search' of 're.Pattern' objects}
+      185    0.000    0.000    0.000    0.000 {built-in method _operator.index}
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2489(__init__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Documents\PACE_Project\brille-performance\profile_scripts\utils.py:26(get_fc_path)
+       36    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\shape_base.py:207(_arrays_for_stack_dispatcher)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:452(<listcomp>)
+        5    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:451(<genexpr>)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:1755(ravel)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\_internal.py:436(_promote_fields)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\errors.py:50(_no_space)
+      243    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+      188    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+       11    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:64(_relax_case)
+      182    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:309(__missing__)
+      113    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\nonmultiplicative\objects.py:43(_ok_for_muldiv)
+        8    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+      108    0.000    0.000    0.000    0.000 {method 'span' of 're.Match' objects}
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\compat.py:217(is_duck_array)
+      176    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\unit.py:174(__pow__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:818(__getitem_inner__)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:136(_commonType)
+       35    0.000    0.000    0.000    0.000 {built-in method numpy.promote_types}
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\weakref.py:213(keys)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:103(release)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:689(spec_from_file_location)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:62(_native_reader)
+       65    0.000    0.000    0.000    0.000 {method 'conj' of 'numpy.ndarray' objects}
+        6    0.000    0.000    0.000    0.000 {method 'tolist' of 'numpy.ndarray' objects}
+       92    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1472(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:246(__init__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:58(_available_reader)
+       81    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+      103    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:288(magnitude)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2772(__init__)
+       92    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:553(_classify_pyc)
+       22    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:222(_verbose_message)
+       50    0.000    0.000    0.000    0.000 {method 'readline' of '_io.BytesIO' objects}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:417(_sanitize_relative_path)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:524(abspath)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_bootlocale.py:11(getpreferredencoding)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\collections\__init__.py:889(__missing__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:900(__init_subclass__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\quantity.py:204(__getattr__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:227(_check_params)
+       14    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ctypes\__init__.py:367(_FuncPtr)
+        3    0.000    0.000    0.000    0.000 {method 'squeeze' of 'numpy.ndarray' objects}
+      248    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\codecs.py:281(getstate)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\twodim_base.py:33(_min_int)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:646(_is_dunder)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:718(__str__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:203(splitext)
+       92    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1406(_moveaxis_dispatcher)
+      5/4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:516(_check_name_wrapper)
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\copy.py:242(_keep_alive)
+       90    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:160(UnitsContainer)
+        4    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:453(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:705(__mul__)
+       16    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:114(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\npyio.py:716(_ensure_ndmin_ndarray)
+       28    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\arraysetops.py:125(_unpack_tuple)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:35(_new_module)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:176(cb)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:310(<lambda>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:933(__truediv__)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:130(keys)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1686(indices)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:728(__fspath__)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1172(exec_module)
+       86    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:432(_repeat_dispatcher)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:586(__init__)
+        7    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\crystal.py:101(__setattr__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_weakrefset.py:20(__enter__)
+       79    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\shape_base.py:1187(_tile_dispatcher)
+       21    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:129(<genexpr>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\_internal.py:523(_view_is_safe)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:451(<listcomp>)
+        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:79(_unpack_uint32)
+        2    0.000    0.000    0.000    0.000 {built-in method _locale._getdefaultlocale}
+       64    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\multiarray.py:148(concatenate)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:280(_splitzipext)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\_distutils_hack\__init__.py:89(find_spec)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:712(_make_child)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\errors.py:39(is_dim)
+       75    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:597(_transpose_dispatcher)
+        5    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\debye_waller.py:80(__setattr__)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\definitions.py:83(symbol)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1040(get_resource_reader)
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\enum.py:313(__call__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:657(_c3_merge)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1148(__init__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:146(splitroot)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\genericpath.py:121(_splitext)
+       16    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:867(__exit__)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:826(is_package)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:172(_collect_type_vars)
+        4    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.generic' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:741(__rtruediv__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\arraysetops.py:289(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\weakref.py:382(__getitem__)
+        1    0.000    0.000    0.000    0.000 <__array_function__ internals>:177(squeeze)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\formatting.py:263(<lambda>)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\type_check.py:121(real)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:54(_namespace_reader)
+       27    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\quantity.py:293(m)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:800(find_spec)
+       40    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\getlimits.py:672(max)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Documents\PACE_Project\brille-performance\profile_scripts\utils.py:11(get_fc_info)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\json\decoder.py:284(__init__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:1517(_set_error_message)
+       16    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:863(__enter__)
+       12    0.000    0.000    0.000    0.000 {built-in method builtins.vars}
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:167(_path_isabs)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\urllib\parse.py:420(_remove_unsafe_bytes_from_url)
+       60    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:2398(_array_equal_dispatcher)
+       27    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\numpy\numpy_func.py:112(<dictcomp>)
+       61    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:2353(_norm_dispatcher)
+        8    0.000    0.000    0.000    0.000 {method 'split' of 'bytes' objects}
+       11    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2821(<genexpr>)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:701(_format_parsed_parts)
+        1    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:531(<listcomp>)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:1500(_check)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:586(_validate_timestamp_pyc)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Documents\PACE_Project\brille-performance\profile_scripts\utils.py:18(create_fc_dict)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\numeric.py:1481(_cross_dispatcher)
+       12    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:781(<dictcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\ntpath.py:77(join)
+       23    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\urllib\parse.py:113(_coerce_args)
+        6    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:103(_load)
+       54    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\definitions.py:209(is_base)
+       29    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\definitions.py:193(symbol)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:50(_zip_reader)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\os.py:1073(__subclasshook__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:999(__init__)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1330(_path_importer_cache)
+       69    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+       20    0.000    0.000    0.000    0.000 {built-in method sys.intern}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:342(__init__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_common.py:75(resolve)
+        4    0.000    0.000    0.000    0.000 {built-in method nt.getpid}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:741(<listcomp>)
+       30    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2493(_cumsum_dispatcher)
+        6    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:720(__hash__)
+        7    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:665(<dictcomp>)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:194(_assert_stacked_2d)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:358(<genexpr>)
+       24    0.000    0.000    0.000    0.000 {built-in method _imp.acquire_lock}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:106(__init__)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:200(_assert_stacked_square)
+        4    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:552(<listcomp>)
+       15    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:392(__subclasshook__)
+        9    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\util.py:218(custom_decode)
+       28    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\arraysetops.py:133(_unique_dispatcher)
+        6    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\weakref.py:128(__getitem__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\spglib\spglib.py:1521(_set_no_error)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:219(_remove_dups_flatten)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:743(_warn_if_incompatible_openmp)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:738(is_related)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:117(isComplexType)
+        4    0.000    0.000    0.000    0.000 {built-in method _imp.is_frozen}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:12(__init__)
+       14    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2672(_amax_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:945(parent)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:143(__init__)
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\enum.py:631(__new__)
+       24    0.000    0.000    0.000    0.000 {built-in method _imp.release_lock}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:1478(squeeze)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:130(_realType)
+        8    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:248(<dictcomp>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:158(isfunction)
+        4    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\readers\castep.py:549(<listcomp>)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_collections_abc.py:72(_check_methods)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:1049(_init)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_weakrefset.py:26(__exit__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\npyio.py:750(_check_nonneg_int)
+       12    0.000    0.000    0.000    0.000 {built-in method builtins.globals}
+       10    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\multiarray.py:1071(copyto)
+        3    0.000    0.000    0.000    0.000 {built-in method _imp._fix_co_filename}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\function_base.py:346(iterable)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\multiarray.py:736(dot)
+        2    0.000    0.000    0.000    0.000 {built-in method math.sqrt}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:53(MultiplexedPath)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\getlimits.py:659(min)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:691(_from_parsed_parts)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\weakref.py:395(__setitem__)
+        9    0.000    0.000    0.000    0.000 {built-in method from_bytes}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:48(SpecPath)
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:193(_reshape_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:256(__del__)
+        4    0.000    0.000    0.000    0.000 {built-in method sys.audit}
+        8    0.000    0.000    0.000    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+        4    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:546(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:112(_makearray)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:324(__eq__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:329(__hash__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:353(__init__)
+       12    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\facets\plain\registry.py:786(<genexpr>)
+        4    0.000    0.000    0.000    0.000 {method 'get' of 'mappingproxy' objects}
+        7    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\brille\lattice.py:5(_make)
+       18    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2539(name)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:1065(<genexpr>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\pint\util.py:687(<listcomp>)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.min}
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\codecs.py:260(__init__)
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:665(<listcomp>)
+       10    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:669(<genexpr>)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\stride_tricks.py:25(_maybe_view_as_subclass)
+       10    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\function_base.py:5385(_append_dispatcher)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:839(<genexpr>)
+        2    0.000    0.000    0.000    0.000 {built-in method spglib._spglib.error_message}
+        4    0.000    0.000    0.000    0.000 c:\users\mll13652\documents\pace_project\euphonic\euphonic\force_constants.py:548(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:32(__init__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:206(_check_generic)
+       32    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\copy.py:182(_deepcopy_atomic)
+        1    0.000    0.000    0.000    0.000 {built-in method _imp.exec_dynamic}
+        5    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:479(_unary_dispatcher)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:168(__enter__)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\threadpoolctl.py:1027(get_version)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:16(__getattr__)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:359(__exit__)
+       16    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2547(annotation)
+        2    0.000    0.000    0.000    0.000 {method 'values' of 'mappingproxy' objects}
+        1    0.000    0.000    0.000    0.000 {method 'rsplit' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 {built-in method _ctypes.sizeof}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:83(ChildPath)
+        6    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\stride_tricks.py:345(<genexpr>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:711(__eq__)
+        1    0.000    0.000    0.000    0.000 {built-in method nt._path_splitroot}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:114(OrphanPath)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:725(find_spec)
+        1    0.000    0.000    0.000    0.000 <string>:1(__new__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\_weakrefset.py:16(__init__)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:721(<listcomp>)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\urllib\parse.py:102(_noop)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\type_check.py:117(_real_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\linalg\linalg.py:107(get_linalg_error_extobj)
+        4    0.000    0.000    0.000    0.000 {built-in method _operator.sub}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:31(ZipReader)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:397(has_location)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:697(__init__)
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2551(kind)
+        8    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:1751(_ravel_dispatcher)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:43(path)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:7(SpecLoaderAdapter)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1024(get_filename)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:294(__init__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\pathlib.py:102(join_parsed_parts)
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:2922(_prod_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\_datasource.py:149(__getitem__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_adapters.py:20(TraversableResourcesLoader)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:15(FileReader)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:834(create_module)
+        9    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2543(default)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\stride_tricks.py:363(_broadcast_to_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\npyio.py:1313(<listcomp>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\_compat.py:40(__init__)
+        4    0.000    0.000    0.000    0.000 {method 'reverse' of 'list' objects}
+        4    0.000    0.000    0.000    0.000 {method '__init_subclass__' of 'object' objects}
+        6    0.000    0.000    0.000    0.000 {built-in method builtins.callable}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:105(NamespaceReader)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:720(<listcomp>)
+        4    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2861(return_annotation)
+        1    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method sys._getframe}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\function_base.py:5191(_insert_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\lib\npyio.py:706(_ensure_ndmin_ndarray_check_param)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:1149(cast)
+        2    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+        1    0.000    0.000    0.000    0.000 {method 'keys' of 'collections.OrderedDict' objects}
+        2    0.000    0.000    0.000    0.000 {method 'items' of 'collections.OrderedDict' objects}
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.abs}
+        1    0.000    0.000    0.000    0.000 {method '__array_prepare__' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'item' of 'numpy.ndarray' objects}
+        3    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:356(__enter__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\numpy\core\fromnumeric.py:1474(_squeeze_dispatcher)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\weakref.py:119(_commit_removals)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:183(<listcomp>)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\typing.py:598(<genexpr>)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\site-packages\importlib_resources\readers.py:27(files)
+        2    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\inspect.py:2857(parameters)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\urllib\parse.py:402(_checknetloc)
+        1    0.000    0.000    0.000    0.000 {built-in method _operator.iadd}
+        1    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'remove' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\contextlib.py:296(__enter__)
+        1    0.000    0.000    0.000    0.000 C:\Users\MLL13652\Miniconda3\envs\py38_brille_prof\lib\functools.py:749(<listcomp>)
+
+
+import os
+import time
+import cProfile
+import pstats
+import io
+import inspect
+
+import numpy as np
+
+from euphonic import ForceConstants, ureg
+from euphonic.brille import BrilleInterpolator
+from euphonic.util import mp_grid
+from utils import get_fc_path, get_create_results_path, get_fc_info, NTHREADS
+
+def main():
+    fc_info = get_fc_info()
+    fci = fc_info[3] # 3 = AmSulf
+    fc_file = str(get_fc_path(fci['filename']))
+    qpts = np.loadtxt('qpts_160801.txt')
+    qpts = qpts[:10000] # Using all qpts runs out of memory with AmSulf
+    fc = ForceConstants.from_castep(fc_file)
+
+    # Euphonic interpolate
+    interpolate_kwargs = {'n_threads': NTHREADS, 'dipole_parameter': fci["dipole_parameter"]}
+    modes = fc.calculate_qpoint_phonon_modes(qpts, **interpolate_kwargs)
+    # Euphonic interpolate - frequencies only
+    fc.calculate_qpoint_frequencies(qpts, **interpolate_kwargs)
+
+    # Brille init
+    bri = BrilleInterpolator.from_force_constants(
+        fc, grid_npts=fci["brille_npts"],
+        interpolation_kwargs=interpolate_kwargs)
+    # Brille interpolate
+    bri.calculate_qpoint_phonon_modes(qpts, useparallel=True, threads=NTHREADS)
+    # Brille interpolate - frequencies only
+    bri.calculate_qpoint_frequencies(qpts, useparallel=True, threads=NTHREADS)
+
+    # Calculate structure factor
+    dw_modes = fc.calculate_qpoint_phonon_modes(mp_grid([6, 6, 6]), **interpolate_kwargs)
+    dw = dw_modes.calculate_debye_waller(temperature=5*ureg('K'))
+    modes.calculate_structure_factor(dw=dw)
+
+if __name__ == '__main__':
+    out_file = f'{get_create_results_path()}/interpolate_cprofile_{int(time.time())}.txt'
+    pr = cProfile.Profile()
+    pr.enable()
+    main()
+    pr.disable()
+
+    strio = io.StringIO()
+    stats = pstats.Stats(pr, stream=strio).sort_stats('cumtime')
+    stats.print_stats()
+
+    with open(out_file, 'a') as f:
+        f.write(strio.getvalue())
+
+    with open(out_file, 'a') as f:
+        f.write(inspect.getsource(inspect.getmodule(inspect.currentframe())))

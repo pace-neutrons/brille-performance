@@ -1,0 +1,41 @@
+['-w', 'coherent', '--grid', '6', '6', '6', '--temperature', '5'] ['--n-threads', '16', '-s', 'tmp.png', '--npts-density', '10000'] --brille-npts=['10000', '20000', '5000', '500'] --dipole-parameter=['0.75', '1.0', '1.0', '0.4']
+
+Material: quartz.castep_bin   
+Euphonic DOS-weighted
+   104.121   110.243   109.973
+Euphonic SF-weighted
+   125.447   122.329   126.427
+Brille DOS-weighted
+    47.801    47.300    51.790
+Brille SF-weighted
+    63.380    59.883    66.273
+
+Material: Nb-181818-s0.5-NCP19-vib-disp.castep_bin
+Euphonic DOS-weighted
+    18.800    19.097    19.244
+Euphonic SF-weighted
+    23.091    23.001    23.004
+Brille DOS-weighted
+    67.725    67.432    66.948
+Brille SF-weighted
+    70.951    84.994    73.626
+
+Material: La2Zr2O7.castep_bin 
+Euphonic DOS-weighted
+   123.005   127.599   129.504
+Euphonic SF-weighted
+   198.278   198.207   198.786
+Brille DOS-weighted
+   117.348   116.483   117.268
+Brille SF-weighted
+   173.427   173.485   173.545
+
+Material: AmSulf_298K.castep_bin # Note AmSulf takes a long time to run so reduced npts-density to 1000
+Euphonic DOS-weighted
+  2267.844  2296.587  2453.655
+Euphonic SF-weighted
+  2572.058  2382.073  2300.441
+Brille DOS-weighted
+   125.017   125.129   126.738
+Brille SF-weighted
+   251.428   251.681   251.218
