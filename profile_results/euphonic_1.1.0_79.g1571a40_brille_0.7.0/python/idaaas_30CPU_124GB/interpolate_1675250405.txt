@@ -1,0 +1,11 @@
+n_threads=30 --brille-npts=['500'] --dipole-parameter=['0.4']
+
+Material: AmSulf_298K.castep_bin
+Euphonic Interpolate
+    15.167    11.235    11.188
+Brille Init
+     3.327     3.321     3.323
+Brille Interpolate
+     1.319     1.326     1.327
+Structure Factor
+     2.869     2.729     2.722
