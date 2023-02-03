@@ -1,0 +1,35 @@
+conversion_mat,1,0,0,0,1,0,0,0,-1,chunk,10000,temperature,5,debye_waller_grid,6,6,6,bose,1,negative_e,1,use_c,1,n_threads,16,useparallel,1,threads,16,brille_npts,10000,20000,5000,500,dipole_parameters,0.75,1,1,0.4
+
+
+Material: quartz.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+    49.373    49.686    48.851
+Brille Init (s)
+     6.190     6.338     6.387
+Brille (s)
+     9.979    10.359    10.424
+
+Material: Nb-181818-s0.5-NCP19-vib-disp.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+    44.585    43.034    42.393
+Brille Init (s)
+    10.999    11.477    11.381
+Brille (s)
+    11.682    11.827    11.676
+
+Material: La2Zr2O7.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+    65.330    62.587    63.127
+Brille Init (s)
+     4.625     4.664     4.526
+Brille (s)
+    27.574    28.090    28.491
+
+Material: AmSulf_298K.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+   548.133   537.968   564.716
+Brille Init (s)
+     7.850     8.594     8.473
+Brille (s)
+   122.705   124.051   115.926
+
