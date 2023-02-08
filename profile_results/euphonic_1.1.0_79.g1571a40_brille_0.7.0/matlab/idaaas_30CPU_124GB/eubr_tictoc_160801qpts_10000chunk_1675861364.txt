@@ -1,0 +1,33 @@
+
+
+Material: quartz.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+     9.312     8.285     8.272
+Brille Init (s)
+     4.271     4.224     4.215
+Brille (s)
+    10.138     9.992     9.982
+
+Material: Nb-181818-s0.5-NCP19-vib-disp.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+     0.981     0.985     1.000
+Brille Init (s)
+     8.632     8.404     8.551
+Brille (s)
+     8.545     8.559     8.558
+
+Material: La2Zr2O7.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+    19.579    19.316    19.348
+Brille Init (s)
+     2.551     2.586     2.714
+Brille (s)
+    27.424    27.343    27.059
+
+Material: AmSulf_298K.castep_bin qpts: 160801     chunk: 10000     
+Euphonic (s)
+   720.471   716.522   716.701
+Brille Init (s)
+     5.354     3.363     3.402
+Brille (s)
+    86.803    86.008    86.321
