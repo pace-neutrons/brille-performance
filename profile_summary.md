@@ -41,4 +41,11 @@ shows the same but with a chunk size of 10000.
 Euphonic run times were generally longer for the 10,000 chunk case than for the default chunk case, this is especially true for quartz where time may also be spend initialising the dipole correction calculation.
 Brille does not provide a speedup over Euphonic in any case except the AmSulf case for 10,000 q-point chunks (default chunk couldn't be tested as it ran out of memory) where a speedup of 4.47 was found.
 
-Profiling run on IDAaaS shows broadly similar results.
+Profiling run on IDAaaS shows broadly similar results. For example
+[idaaas_30CPU_124GB/eubr_tictoc_160801qpts_10000chunk_1675861364.txt](https://github.com/pace-neutrons/brille-performance/blob/master/profile_results/euphonic_1.1.0_79.g1571a40_brille_0.7.0/matlab/idaaas_30CPU_124GB/eubr_tictoc_160801qpts_10000chunk_1675861364.txt)
+shows that for a chunk size of 10k and 160k q-points total, Brille provides a speedup of 8.38. The Nb, LZO and quartz show no speedup or are slower.
+For euphonic-powder-map
+[idaaas_30CPU_124GB/powder_map_1675250699.txt](https://github.com/pace-neutrons/brille-performance/blob/master/profile_results/euphonic_1.1.0_79.g1571a40_brille_0.7.0/python/idaaas_30CPU_124GB/powder_map_1675250699.txt)
+LZO has a speedup of 1.77, quartz 2.17, and AmSulf 8.10 faster.
+It's not clear why speedups for LZO and quartz are better for euphonic-powder-map.
+It could be because calculate_qpoint_phonon_modes is called many times, once for each |Q| shell, and perhaps Brille has a lower initialisation cost per call.
